@@ -84,7 +84,7 @@ and open the template in the editor.
                   
         <input type="hidden" name="idUserOrientador" value="1" >      
          
-        <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%" value="" style="margin-top: 8px" title="Cadastrar">
+        <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%" value="" title="Cadastrar">
        </form>
      </div>
            </div>

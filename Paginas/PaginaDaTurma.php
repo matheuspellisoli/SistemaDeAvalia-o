@@ -26,6 +26,7 @@ and open the template in the editor.
         header("Content-Type: text/html; charset=ISO-8859-1", true);
         include '../funcao/conecta.php';
         $idTurma = $_GET['idTurma'];
+        $nomeTurma = $_GET['nomeTurma'];
       ?>
        
 <script>   
@@ -68,7 +69,7 @@ and open the template in the editor.
                        <?php echo "{";?>
                            <?php echo "id: $Id,";?>
                                <?php echo "title:'$Titulo',";?>
-                                   <?php echo "url:'http://localhost/Calendario/Paginas/teste.php?id=$Id',";?>
+                                   <?php echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/teste.php?id=$Id',";?>
                                        <?php echo "start:'$DInicio"."T14:30:00' ,";?>
                                           <?php echo "end:'$DFinal"."T14:40:00' ,";?> 
                                              <?php echo "color: '$color'";?>   
@@ -110,7 +111,10 @@ and open the template in the editor.
     </ul>
   </div>
 </nav>
-
+<div class="col-lg-2"></div>
+            <div class="panel panel-default col-lg-8">
+                <div class="panel-body" style="text-align:center;"><h3><?php echo "$nomeTurma";?></h3></div>
+            </div>
   
 <div class="container" style="margin-top: 5%">
   <div class="row">
@@ -182,10 +186,25 @@ and open the template in the editor.
                </div>
               <!---------------------------------------->
               <div id='editarTurma' style="margin-top: 2%">
-                   Teste editar turma
+                   <div class=" col-lg-4"></div>
+            <div class=" col-lg-4">
+            <div class="form-group"> 
+                <h2>Editar turma</h2>
+                <form method="Post" enctype="multipart/form-data" action="../funcao/funcCadastrarTurma.php">
+            <div class="col-lg-12" style="margin-top: 8px ">
+            <label for="titulo">Nome da turma</label>
+        <input type="text"  name="titulo" class="form-control" id="email" >
+            </div> 
+           <div class="col-lg-12" style="margin-top: 2%">
+            <label for="file">Icone da turma </label>
+        <input type="file"  name="file" class="form-control" >
+           </div>   
                </div>
+                  <button type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%; margin-bottom: 5%;" value="">Alterar</button>
           </div>
-         
+                 
+       </form>
+         <div class=" col-lg-4"></div>
         
     <div class="col-sm-3"> </div>
   </div>

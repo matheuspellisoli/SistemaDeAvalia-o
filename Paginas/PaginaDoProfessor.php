@@ -78,9 +78,9 @@ and open the template in the editor.
            <h4>Nova Turma</h4>
       </div>   
         </div> 
-        <div class="panel-body" style="margin-top: 5 " >
-          <div class="col-lg-12" > 
-                            <div class="col-lg-12"><h4>Adicionar uma nova turma</h4></div>              
+        <div class="panel-body" style="margin-top: 5% ;" >
+          <div class="col-lg-12"   > 
+                            <div class="col-lg-12" style="margin-top: 3.5% ; margin-bottom: 5%"><h4>Adicionar uma nova turma</h4></div>              
         </div> 
           <div class="col-lg-12" > 
               <form action="../Paginas/CadastrarTurma.php" method="get">                                    
@@ -135,7 +135,8 @@ and open the template in the editor.
         </div> 
           <div class="col-lg-12" > 
               <form action="../Paginas/PaginaDaTurma.php" method="get">
-                  <input type="hidden" name="idTurma" value="<?php echo "$IdTurma";?>">                  
+                  <input type="hidden" name="idTurma" value="<?php echo "$IdTurma";?>">    
+                   <input type="hidden" name="nomeTurma" value="<?php echo "$nomeTurma";?>">  
                   <button  accept="" type="submit" class="btn btn-default col-lg-12" >Ver detalhes</button>              
               </form>           
         </div> 
