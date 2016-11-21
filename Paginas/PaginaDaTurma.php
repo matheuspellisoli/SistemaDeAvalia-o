@@ -231,6 +231,7 @@ and open the template in the editor.
       </tr>
     </tbody>
   </table>
+                   
                </div>
               <!---------------------------------------->
               <div id='calendar' style="margin-top: 2%"></div>
