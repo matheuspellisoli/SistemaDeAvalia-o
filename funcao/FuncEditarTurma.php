@@ -32,11 +32,11 @@ $sql1 = "UPDATE `turma` SET `nome`='$nome',`tipo_img`='$file_type',`binario`='$b
 //executamos a instução SQL
     mysql_query("$sql1") or die (mysql_error());
     
-    //header('Location:..//Paginas/PaginaDaTurma.php?idTurma='.$idTurma); 
+    header('Location:..//Paginas/PaginaDaTurma.php?idTurma='.$idTurma); 
                     }  else {
    $sql2 = "UPDATE `turma` SET `nome`='$nome' WHERE `id`= $idTurma";
 //executamos a instução SQL
     mysql_query("$sql2") or die (mysql_error()); 
     
-   //header('Location:..//Paginas/PaginaDaTurma.php?idTurma='.$idTurma);     
+   header('Location:..//Paginas/PaginaDaTurma.php?idTurma='.$idTurma);     
 }

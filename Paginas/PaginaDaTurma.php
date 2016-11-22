@@ -195,8 +195,8 @@ and open the template in the editor.
           <div class=" col-lg-9" style="font-size: 150%">Graficos</div>
       </button>
       <button class="col-lg-3  panel panel-default" style="padding:1%" id="btnEditarTutma">
-          <div class="glyphicon glyphicon-pencil col-lg-2" style="font-size: 200%"></div>
-          <div class=" col-lg-9" style="font-size: 150%">Editar turma</div>
+          <div class="glyphicon glyphicon-cog col-lg-2" style="font-size: 200%"></div>
+          <div class=" col-lg-9" style="font-size: 150%">Configurar</div>
       </button>      
   </div>
           <div class="col-lg-12  panel panel-default"> 
@@ -250,7 +250,7 @@ and open the template in the editor.
                    <div class=" col-lg-4"></div>
             <div class=" col-lg-4">
             <div class="form-group"> 
-                <h2>Editar turma</h2>
+                <h2>Configurar</h2>
                 <form method="post" enctype="multipart/form-data" action="../funcao/FuncEditarTurma.php">
             <div class="col-lg-12" style="margin-top: 8px ">
             <label for="titulo">Nome da turma</label>
@@ -261,13 +261,24 @@ and open the template in the editor.
             <label for="file">Icone da turma </label>
         <input type="file"  name="file" class="form-control" >
            </div>   
-               </div>
-                <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%; margin-bottom: 5%;" value="Alterar">
+              
+                <button type="submit" class="btn btn-default  col-lg-12" style="margin-top: 4%; margin-bottom: 5%;">
+                  <span class="glyphicon glyphicon-edit"></span>
+                    Alterar
+                </button>
           </div>
-                 
+                  
        </form>
+                
+            <div class="form-group">                
+        <input type="hidden" name="id" value="<?php echo $idTurma;?>">
+           
+        <button type="submit" class="btn btn-default  col-lg-12" style=" margin-bottom: 5%;">   
+             <span class="glyphicon glyphicon-trash"></span>
+            Excluir
+</button>
+          </div></div> 
          <div class=" col-lg-4"></div>
-        
     <div class="col-sm-3"> </div>
   </div>
 </div>
