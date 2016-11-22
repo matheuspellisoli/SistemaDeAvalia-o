@@ -2,9 +2,9 @@
 include '../funcao/conecta.php';
 
 $nome = $_POST['nome'];
-$id = $_POST['id'];
+$idTurma = $_POST['id'];
 
-echo "Nome $nome / id $id";
+echo "Nome $nome / id $idTurma";
 
 if(file_exists($file_tmp = $_FILES["file"]["tmp_name"] )){ 
 $file_tmp = $_FILES["file"]["tmp_name"];
@@ -15,6 +15,7 @@ $file_size = $_FILES["file"]["size"];
 //MIME DO ARQUIVO
 $file_type = $_FILES["file"]["type"];
  
+
 //antes de ler o conteudo do arquivo você pode fazer upload para compactar em .ZIP ou .RAR, no caso de imagem você poderá redimensionar o tamanho antes de gravar no banco. Claro que depende da sua necessidade.
  
 //Para fazer UPLOAD poderá usar COPY ou MOVE_UPLOADED_FILE
@@ -25,17 +26,17 @@ $file_type = $_FILES["file"]["type"];
 $binario = file_get_contents($file_tmp);
 // evitamos erro de sintaxe do MySQL
 $binario = mysql_real_escape_string($binario);
- 
+
 //montamos o SQL para envio dos dados
-$sql = "UPDATE `turma` SET `nome`='$nome',`tipo_img`='$file_type',`binario`='$binario' WHERE `id`= $id";
+$sql1 = "UPDATE `turma` SET `nome`='$nome',`tipo_img`='$file_type',`binario`='$binario' WHERE `id`= $idTurma";
 //executamos a instução SQL
-    mysql_query("$sql") or die (mysql_error());
+    mysql_query("$sql1") or die (mysql_error());
     
-    //header('Location:../Paginas/index.php');
+    //header('Location:..//Paginas/PaginaDaTurma.php?idTurma='.$idTurma); 
                     }  else {
-   $sql = "UPDATE `turma` SET `nome`='$nome' WHERE `id`= $id";
+   $sql2 = "UPDATE `turma` SET `nome`='$nome' WHERE `id`= $idTurma";
 //executamos a instução SQL
-    mysql_query("$sql") or die (mysql_error()); 
+    mysql_query("$sql2") or die (mysql_error()); 
     
-    //header('Location:../Paginas/index.php');      
+   //header('Location:..//Paginas/PaginaDaTurma.php?idTurma='.$idTurma);     
 }

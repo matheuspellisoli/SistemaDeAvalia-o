@@ -251,18 +251,18 @@ and open the template in the editor.
             <div class=" col-lg-4">
             <div class="form-group"> 
                 <h2>Editar turma</h2>
-                <form method="Post" enctype="multipart/form-data" action="../funcao/FuncEditarTurma.php">
+                <form method="post" enctype="multipart/form-data" action="../funcao/FuncEditarTurma.php">
             <div class="col-lg-12" style="margin-top: 8px ">
             <label for="titulo">Nome da turma</label>
         <input type="text"  name="nome" class="form-control" id="email" >
-        <input type="hidden" name="id" value="<?php echo "$Id";?>"
-            </div> 
+        <input type="hidden" name="id" value="<?php echo $idTurma;?>">
+            </div>             
            <div class="col-lg-12" style="margin-top: 2%">
             <label for="file">Icone da turma </label>
         <input type="file"  name="file" class="form-control" >
            </div>   
                </div>
-                  <button type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%; margin-bottom: 5%;" value="">Alterar</button>
+                <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%; margin-bottom: 5%;" value="Alterar">
           </div>
                  
        </form>

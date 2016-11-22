@@ -136,7 +136,7 @@ and open the template in the editor.
           <div class="col-lg-12" > 
               <form action="../Paginas/PaginaDaTurma.php" method="get">
                   <input type="hidden" name="idTurma" value="<?php echo "$IdTurma";?>">    
-                   <input type="hidden" name="nomeTurma" value="<?php echo "$nomeTurma";?>">  
+                  
                   <button  accept="" type="submit" class="btn btn-default col-lg-12" >Ver detalhes</button>              
               </form>           
         </div> 
