@@ -78,9 +78,9 @@ and open the template in the editor.
            <h4>Nova Turma</h4>
       </div>   
         </div> 
-        <div class="panel-body" style="margin-top: 5% ;" >
+        <div class="panel-body" style="margin-top: 1% ;" >
           <div class="col-lg-12"   > 
-                            <div class="col-lg-12" style="margin-top: 3.5% ; margin-bottom: 5%"><h4>Adicionar uma nova turma</h4></div>              
+                            <div class="col-lg-12" style="margin-bottom: 1.5%"><h4>Adicionar uma nova turma</h4></div>              
         </div> 
           <div class="col-lg-12" > 
               <form action="../Paginas/CadastrarTurma.php" method="get">                                    
