@@ -1,4 +1,11 @@
 <?php
+include '../funcao/conecta.php';
+
+$nome = $_POST['nome'];
+$id = $_POST['id'];
+
+echo "Nome $nome / id $id";
+
 if(file_exists($file_tmp = $_FILES["file"]["tmp_name"] )){ 
 $file_tmp = $_FILES["file"]["tmp_name"];
  //NOME DO ARQUIVO NO COMPUTADOR
@@ -20,12 +27,15 @@ $binario = file_get_contents($file_tmp);
 $binario = mysql_real_escape_string($binario);
  
 //montamos o SQL para envio dos dados
-$sql = "";
+$sql = "UPDATE `turma` SET `nome`='$nome',`tipo_img`='$file_type',`binario`='$binario' WHERE `id`= $id";
 //executamos a instução SQL
-mysql_query("$sql") or die (mysql_error());    
+    mysql_query("$sql") or die (mysql_error());
+    
+    //header('Location:../Paginas/index.php');
                     }  else {
-    $sql = "";
+   $sql = "UPDATE `turma` SET `nome`='$nome' WHERE `id`= $id";
 //executamos a instução SQL
-mysql_query("$sql") or die (mysql_error());    
-          
+    mysql_query("$sql") or die (mysql_error()); 
+    
+    //header('Location:../Paginas/index.php');      
 }

@@ -28,7 +28,13 @@ and open the template in the editor.
         header("Content-Type: text/html; charset=ISO-8859-1", true);
         include '../funcao/conecta.php';
         $idTurma = $_GET['idTurma'];
-        $nomeTurma = $_GET['nomeTurma'];
+        
+        $consulta2 = mysql_query("SELECT * FROM `turma` WHERE `id` = $idTurma");
+         $linhas2 = mysql_num_rows($consulta2);
+        for($i=0; $i< $linhas2; $i++){	
+        $nomeTurma = mysql_result($consulta2,$i,"nome");
+        
+        }
       ?>
        
 <script>   
@@ -245,10 +251,11 @@ and open the template in the editor.
             <div class=" col-lg-4">
             <div class="form-group"> 
                 <h2>Editar turma</h2>
-                <form method="Post" enctype="multipart/form-data" action="../funcao/funcCadastrarTurma.php">
+                <form method="Post" enctype="multipart/form-data" action="../funcao/FuncEditarTurma.php">
             <div class="col-lg-12" style="margin-top: 8px ">
             <label for="titulo">Nome da turma</label>
-        <input type="text"  name="titulo" class="form-control" id="email" >
+        <input type="text"  name="nome" class="form-control" id="email" >
+        <input type="hidden" name="id" value="<?php echo "$Id";?>"
             </div> 
            <div class="col-lg-12" style="margin-top: 2%">
             <label for="file">Icone da turma </label>
