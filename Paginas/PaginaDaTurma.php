@@ -181,24 +181,33 @@ and open the template in the editor.
     <div class="col-sm-3">  </div>
     <div class="col-sm-6"></div>
       <div class="container">
-  <div class="col-lg-12 ">      
-      <button class="col-lg-3  panel panel-default" style="padding:1%;" id="btnAluno">
+            
+  <div class="col-lg-12 "> 
+      <div class="col-lg-1 "></div> 
+      <button class="col-lg-2  panel panel-default" style="padding:1%;" id="btnAluno">
           <div class="glyphicon glyphicon-user col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%;">Alunos</div>
       </button>
-      <button class="col-lg-3  panel panel-default" style="padding:1%" id="btnCalendario">
+      <button class="col-lg-2  panel panel-default" style="padding:1%" id="btnCalendario">
           <div class="glyphicon glyphicon-calendar col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Calendario</div>
       </button>
-      <button class="col-lg-3  panel panel-default" style="padding:1%" id="btnGrafico">
+      <button class="col-lg-2  panel panel-default" style="padding:1%" id="btnGrafico">
           <div class="glyphicon glyphicon-random col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Graficos</div>
       </button>
-      <button class="col-lg-3  panel panel-default" style="padding:1%" id="btnEditarTutma">
+      <button class="col-lg-2  panel panel-default" style="padding:1%" id="btnForunTutma">
+          <div class="glyphicon glyphicon-comment col-lg-2" style="font-size: 200%"></div>
+          <div class=" col-lg-9" style="font-size: 150%">forum</div>
+      </button>  
+      <button class="col-lg-2  panel panel-default" style="padding:1%" id="btnEditarTutma">
           <div class="glyphicon glyphicon-cog col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Configurar</div>
-      </button>      
+      </button> 
+       <div class="col-lg-1 "></div>   
   </div>
+         
+      </div>
           <div class="col-lg-12  panel panel-default"> 
               <!---------------------------------------->
                <div id='Aluno' style="margin-top: 2%">
@@ -281,6 +290,49 @@ and open the template in the editor.
          <div class=" col-lg-4"></div>
     <div class="col-sm-3"> </div>
   </div>
+     <div id='forum' style="margin-top: 2%">
+         <div  class="col-lg-12">
+             <!-- Media inicio-->
+<div class="media">
+  <div class="media-left">
+      <img src="../user.jpg" class="media-object" style="width:60px">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">Tiago</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+</div>       
+    <!-- Midia Final -->
+     <!-- Media inicio-->
+<div class="media">
+  <div class="media-right">
+      <img src="../user.jpg" class="media-object" style="width:60px">
+  </div>
+  <div class="media-body" >
+    <h4 class="media-heading">Paula</h4>
+    <h1><em>uohjcildbte</em></h1>
+
+<p>gf n,kgfjdhg</p>
+
+<p>]gjvladbv&nbsp;</p>
+
+<p>tkjo mhlyio</p>
+
+<p>dfssoj bmhlohgti</p>
+
+<p>kugrbva</p>
+
+<p>]</p>
+
+  </div>
+</div>       
+    <!-- Midia Final -->
+             </div>
+    </div>         
 </div>
     <script type="text/javascript">
     $(document).ready(function(){             
@@ -290,18 +342,21 @@ and open the template in the editor.
         $('#calendar').hide();
         $('#grafico').hide();
         $('#editarTurma').hide();
+        $('#forum').hide();
     //--------------------------------
           
     	$('#btnAluno').on('click',toggleAluno);
     	$('#btnCalendario').on('click',toggleCalendario);
         $('#btnGrafico').on('click',toggleGrafico);
         $('#btnEditarTutma').on('click',toggleEditarTurma);
+         $('#btnForunTutma').on('click',toggleForumTurma);
         
      //------------------------------------------------------
         function toggleAluno(){
             $('#calendar').hide();
             $('#grafico').hide();
             $('#editarTurma').hide();
+            $('#forum').hide();
             $('#Aluno').slideToggle('slwo',null);
 
         };
@@ -309,19 +364,30 @@ and open the template in the editor.
             $('#Aluno').hide();
             $('#grafico').hide();
             $('#editarTurma').hide();
+            $('#forum').hide();
             $('#calendar').slideToggle('slwo',null);
         };
         function toggleGrafico(){
             $('#calendar').hide();
             $('#Aluno').hide();
             $('#editarTurma').hide();
+            $('#forum').hide();
             $('#grafico').slideToggle('slwo',null);
         };
         function toggleEditarTurma(){
             $('#calendar').hide();
             $('#grafico').hide();
             $('#Aluno').hide();
+            $('#forum').hide();
             $('#editarTurma').slideToggle('slwo',null);
+
+        };
+        function toggleForumTurma(){
+            $('#calendar').hide();
+            $('#grafico').hide();
+            $('#Aluno').hide();
+            $('#editarTurma').hide();
+            $('#forum').slideToggle('slwo',null);
 
         };
         
