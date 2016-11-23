@@ -4,6 +4,9 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?Php 
+date_default_timezone_set('America/Sao_Paulo');
+?>
 <html>
     <head>
         <meta http-equiv="content-Type" content="text/html; charset=iso-8859-1" />
@@ -16,7 +19,8 @@ and open the template in the editor.
   <link href='../fullcalendar-3.0.1/fullcalendar.css' rel='stylesheet' />
   <link href='../fullcalendar-3.0.1/fullcalendar.print.css' rel='stylesheet' media='print' />
   <script src='../fullcalendar-3.0.1/lib/moment.min.js'></script>
-  <script src='../fullcalendar-3.0.1/lib/jquery.min.js'></script>
+  <script src='../jquery-3.1.1.min.js'></script>
+
   <script src='../fullcalendar-3.0.1/fullcalendar.min.js'></script>  
   <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -28,7 +32,6 @@ and open the template in the editor.
         header("Content-Type: text/html; charset=ISO-8859-1", true);
         include '../funcao/conecta.php';
         $idTurma = $_GET['idTurma'];
-        
         $consulta2 = mysql_query("SELECT * FROM `turma` WHERE `id` = $idTurma");
          $linhas2 = mysql_num_rows($consulta2);
         for($i=0; $i< $linhas2; $i++){	
@@ -39,58 +42,37 @@ and open the template in the editor.
        
 <script>   
    
-	$(document).ready(function() {
-		
-		$('#calendar').fullCalendar({
+	$(document).ready(function() {  
+            var id=<?php echo $idTurma?>;
+            
+        $('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
 				center: 'title',
 				right: ''
 			},
-                            //month
-			// customize the button names,
-			// otherwise they'd all just say "list"
-			views: {
+                        views: {
 				listDay: { buttonText: 'list day' },
 				listWeek: { buttonText: 'list week' }
-			},                        
-			defaultView: 'month',
-			defaultDate: '<?php echo date("Y-m-d");?>   ',
-			navLinks: false, // can click day/week names to navigate views
+			},   
+                        defaultView: 'month',
+			defaultDate:<?php echo date("Y-m-d");?>,
 			editable: false,
+			navLinks: false, // can click day/week names to navigate views
 			eventLimit: true, // allow "more" link when too many events
-                        locale:'pt-br',
-			events: [
-                           <?php 
-                                  $eventos;
-      $consulta = mysql_query("SELECT * FROM `calendario` where `turma` = $idTurma");
-      $linhas = mysql_num_rows($consulta);
-      for($i=0; $i< $linhas; $i++){
-                                    $Id = mysql_result($consulta,$i,"id");
-                                    $Titulo = mysql_result($consulta,$i,"titulo");                   
-                 
-                                    $DInicio = mysql_result($consulta,$i,"dataInicio");
-                                    $DFinal=mysql_result($consulta,$i,"dataFim");      
-                                    $color = mysql_result($consulta,$i,"cor");  ;
-      
-                    ?>	
-                       <?php echo "{";?>
-                           <?php echo "id: $Id,";?>
-                               <?php echo "title:'$Titulo',";?>
-                                   <?php echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/teste.php?id=$Id',";?>
-                                       <?php echo "start:'$DInicio"."T14:30:00' ,";?>
-                                          <?php echo "end:'$DFinal"."T14:40:00' ,";?> 
-                                             <?php echo "color: '$color'";?>   
-                                               <?php echo "}";?>
-                                                   <?php echo ",";?>
-            
-           
-      <?php } ?>
-                        ]
+			locale:'pt-br',
+                        events: {
+				url: '../../funcao/buscarCal.php?id='+id,
+				error: function() {
+					$('#script-warning').show();
+				}
+			},
+			loading: function(bool) {
+				$('#loading').toggle(bool);
+			}
 		});
-	
-	
-        $(function () {
+               
+        $(function grafico(){
     $('#container').highcharts({
         title: {
             text: 'Monthly Average Temperature',
@@ -139,7 +121,62 @@ and open the template in the editor.
     });
 });
         
+        //------------------------------
         
+        $('#Aluno').show();
+        $('#calendar').hide();
+        $('#grafico').hide();
+        $('#editarTurma').hide();
+        $('#forum').hide();
+    //--------------------------------
+          
+    	$('#btnAluno').on('click',toggleAluno);
+    	$('#btnCalendario').on('click',toggleCalendario);
+        $('#btnGrafico').on('click',toggleGrafico);
+        $('#btnEditarTutma').on('click',toggleEditarTurma);
+         $('#btnForunTutma').on('click',toggleForumTurma);
+        
+     //------------------------------------------------------
+        function toggleAluno(){
+            $('#calendar').hide();
+            $('#grafico').hide();
+            $('#editarTurma').hide();
+            $('#forum').hide();
+            $('#Aluno').slideToggle('slwo',null);
+
+        };
+        function toggleCalendario(){
+            $('#Aluno').hide();
+            $('#grafico').hide();
+            $('#editarTurma').hide();
+            $('#forum').hide();
+            $('#calendar').slideToggle('slwo',null);
+        };
+        function toggleGrafico(){
+            $('#calendar').hide();
+            $('#Aluno').hide();
+            $('#editarTurma').hide();
+            $('#forum').hide();
+            $('#grafico').slideToggle('slwo',null);
+        };
+        function toggleEditarTurma(){
+            $('#calendar').hide();
+            $('#grafico').hide();
+            $('#Aluno').hide();
+            $('#forum').hide();
+            $('#editarTurma').slideToggle('slwo',null);
+
+        };
+        function toggleForumTurma(){
+            $('#calendar').hide();
+            $('#grafico').hide();
+            $('#Aluno').hide();
+            $('#editarTurma').hide();
+            $('#forum').slideToggle('slwo',null);
+
+        };
+        
+      
         
         });
 
@@ -334,65 +371,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
              </div>
     </div>         
 </div>
-    <script type="text/javascript">
-    $(document).ready(function(){             
-     //------------------------------
-        
-        $('#Aluno').show();
-        $('#calendar').hide();
-        $('#grafico').hide();
-        $('#editarTurma').hide();
-        $('#forum').hide();
-    //--------------------------------
-          
-    	$('#btnAluno').on('click',toggleAluno);
-    	$('#btnCalendario').on('click',toggleCalendario);
-        $('#btnGrafico').on('click',toggleGrafico);
-        $('#btnEditarTutma').on('click',toggleEditarTurma);
-         $('#btnForunTutma').on('click',toggleForumTurma);
-        
-     //------------------------------------------------------
-        function toggleAluno(){
-            $('#calendar').hide();
-            $('#grafico').hide();
-            $('#editarTurma').hide();
-            $('#forum').hide();
-            $('#Aluno').slideToggle('slwo',null);
-
-        };
-        function toggleCalendario(){
-            $('#Aluno').hide();
-            $('#grafico').hide();
-            $('#editarTurma').hide();
-            $('#forum').hide();
-            $('#calendar').slideToggle('slwo',null);
-        };
-        function toggleGrafico(){
-            $('#calendar').hide();
-            $('#Aluno').hide();
-            $('#editarTurma').hide();
-            $('#forum').hide();
-            $('#grafico').slideToggle('slwo',null);
-        };
-        function toggleEditarTurma(){
-            $('#calendar').hide();
-            $('#grafico').hide();
-            $('#Aluno').hide();
-            $('#forum').hide();
-            $('#editarTurma').slideToggle('slwo',null);
-
-        };
-        function toggleForumTurma(){
-            $('#calendar').hide();
-            $('#grafico').hide();
-            $('#Aluno').hide();
-            $('#editarTurma').hide();
-            $('#forum').slideToggle('slwo',null);
-
-        };
-        
-        
-});
     </script>
 
 </body>

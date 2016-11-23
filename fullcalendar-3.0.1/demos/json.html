@@ -11,7 +11,7 @@
 <script>
 
 	$(document).ready(function() {
-	
+            var id=10;
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
@@ -23,7 +23,7 @@
 			navLinks: true, // can click day/week names to navigate views
 			eventLimit: true, // allow "more" link when too many events
 			events: {
-				url: 'php/get-events.php',
+				url: '../../funcao/buscar.php?id='+id,
 				error: function() {
 					$('#script-warning').show();
 				}
