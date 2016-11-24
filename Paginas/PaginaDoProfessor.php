@@ -23,6 +23,7 @@ and open the template in the editor.
         
     </head>
     <body>
+       
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -39,7 +40,7 @@ and open the template in the editor.
     </ul>
   </div>
 </nav>
-        
+       
       <?php
         header("Content-Type: text/html; charset=ISO-8859-1", true);
         include '../funcao/conecta.php';        

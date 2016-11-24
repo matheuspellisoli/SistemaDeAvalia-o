@@ -29,7 +29,7 @@ date_default_timezone_set('America/Sao_Paulo');
     </head>
     <body>
       <?php
-        header("Content-Type: text/html; charset=ISO-8859-1", true);
+       // header("Content-Type: text/html; charset=ISO-8859-1", true);
         include '../funcao/conecta.php';
         $idTurma = $_GET['idTurma'];
         $consulta2 = mysql_query("SELECT * FROM `turma` WHERE `id` = $idTurma");
@@ -319,7 +319,7 @@ date_default_timezone_set('America/Sao_Paulo');
             <div class="form-group">                
         <input type="hidden" name="id" value="<?php echo $idTurma;?>">
            
-        <button type="submit" class="btn btn-default  col-lg-12" style=" margin-bottom: 5%;">   
+        <button type="submit" class="btn btn-default  col-lg-12"  data-toggle="modal" data-target="#myModal" style=" margin-bottom: 5%;">   
              <span class="glyphicon glyphicon-trash"></span>
             Excluir
 </button>
@@ -373,5 +373,27 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 </div>
     </script>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" style="margin-top: 15%">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><span class="glyphicon glyphicon-trash"></span>  Excluir</h4>
+      </div>
+      <div class="modal-body">
+        <p>Deseja excluir o turma</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Sim</button>
+        
+      </div>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
