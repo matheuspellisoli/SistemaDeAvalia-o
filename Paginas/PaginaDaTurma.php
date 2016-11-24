@@ -273,7 +273,7 @@ date_default_timezone_set('America/Sao_Paulo');
                    
                    <div class="col-lg-12">
                <div class="col-lg-2 "></div>            
-        <button class="col-lg-4  panel panel-default" style="padding:1%" id="btnCalendario">
+        <button class="col-lg-4  panel panel-default" style="padding:1%" id="btnCalendario" data-toggle="modal" data-target="#CadastrarUsuario" >
           <div class="glyphicon glyphicon-plus col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Adicionar aluno</div>
       </button>
@@ -349,7 +349,7 @@ date_default_timezone_set('America/Sao_Paulo');
             <div class="form-group">                
         <input type="hidden" name="id" value="<?php echo $idTurma;?>">
            
-        <button type="submit" class="btn btn-default  col-lg-12"  data-toggle="modal" data-target="#myModal" style=" margin-bottom: 5%;">   
+        <button type="submit" class="btn btn-default  col-lg-12"  data-toggle="modal" data-target="#ExcluirTurma" style=" margin-bottom: 5%;">   
              <span class="glyphicon glyphicon-trash"></span>
             Excluir
 </button>
@@ -404,7 +404,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     </script>
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog" style="margin-top: 15%">
+<div id="ExcluirTurma" class="modal fade" role="dialog" style="margin-top: 15%">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -425,6 +425,53 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
           </form>  
           </div>         
           
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="CadastrarUsuario" class="modal fade" role="dialog" style="margin-top: 15%">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cadastrar Aluno</h4>
+      </div>
+      <div class="modal-body" class=" col-lg-12">
+          <div>
+            <div class=" col-lg-12">
+            <div class="form-group">
+                <form method="Post" enctype="multipart/form-data" action="../funcao/FuncCadatraAluno.php">
+            <div class="col-lg-12">
+                <br>
+            <label for="titulo">Nome</label>
+        <input type="text"  name="nome" class="form-control" id="email" style="margin-top: 8px ">
+            </div>
+            <div class="col-lg-12">
+            <label for="descricao">Senha</label>
+            <input type="password"  name="senha" class="form-control" id="email" style="margin-top: 8px ">
+            </div>  
+            <div class="col-lg-12">
+            <label for="descricao">E-mail</label>
+            <input type="email"  name="email" class="form-control" id="email" style="margin-top: 8px ">
+            </div> 
+                     
+        <input type="hidden" name="idUserOrientador" value="1" > 
+        <input type="hidden" name="idTurma" value="<?php echo $idTurma;?>" > 
+         
+         <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%" value="Cadastrar aluno" style="margin-top: 8px">
+       </form>
+     </div>
+           </div> 
+          </div>
+                    
+      </div>
+      <div class="modal-footer">
+        
       </div>
     </div>
 
