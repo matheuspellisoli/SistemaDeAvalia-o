@@ -78,6 +78,7 @@ date_default_timezone_set('America/Sao_Paulo');
                                     $color = mysql_result($consulta,$i,"cor");  ;
       
                     ?>	
+                                    
                        <?php echo "{";?>
                            <?php echo "id: $Id,";?>
                                <?php echo "title:'$Titulo',";?>
