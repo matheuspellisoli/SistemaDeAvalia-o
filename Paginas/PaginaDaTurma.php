@@ -290,32 +290,27 @@ date_default_timezone_set('America/Sao_Paulo');
         <th>Id</th>
         <th>Nome</th>
         <th>Email</th>
-        <th>Grupo</th>
-        <th>Media</th>
+        <th>Grupo</th>       
       </tr>
     </thead>
     <tbody>
+        <?php
+        $sql_user = mysql_query("SELECT * FROM `usuarioinfo` WHERE  idturma = $idTurma");
+
+        while ($User = mysql_fetch_object($sql_user)) {
+            $UserId = $User->idUsuario;
+            $UserNome = $User->nome;
+            $Useremail= $User->email;
+            $Usergrup= $User->grupo;
+        
+?>    
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-         <td>gp1</td>
-        <td>10</td>
+          <td><?php echo $UserId;?></td>
+        <td><?php echo $UserNome;?></td>
+        <td><?php echo $Useremail;?></td>
+         <td><?php echo $Usergrup;?></td>        
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-         <td>gp1</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-        <td>gp1</td>
-        <td>10</td>
-      </tr>
+      <?php }?>
     </tbody>
   </table>
                    

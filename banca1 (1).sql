@@ -113,9 +113,9 @@ INSERT INTO `nota` (`idNota`, `idAvaliacao`, `idUsuario`, `nota`) VALUES
 -- Estrutura da tabela `usuariogrupos`
 --
 
-CREATE TABLE IF NOT EXISTS `usuariogrupos` (
+CREATE TABLE IF NOT EXISTS `usuarioturma` (
   `usuarios_idUsuario` int(11) DEFAULT NULL,
-  `Grupos_idGrupo` int(11) DEFAULT NULL
+  `turma_idturma` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
