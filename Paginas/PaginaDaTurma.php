@@ -51,25 +51,46 @@ date_default_timezone_set('America/Sao_Paulo');
 				center: 'title',
 				right: ''
 			},
-                        views: {
+                            //month
+			// customize the button names,
+			// otherwise they'd all just say "list"
+			views: {
 				listDay: { buttonText: 'list day' },
 				listWeek: { buttonText: 'list week' }
-			},   
-                        defaultView: 'month',
-			defaultDate:<?php echo date("Y-m-d");?>,
-			editable: false,
+			},                        
+			defaultView: 'month',
+			defaultDate: '<?php echo date("Y-m-d");?>   ',
 			navLinks: false, // can click day/week names to navigate views
+			editable: false,
 			eventLimit: true, // allow "more" link when too many events
-			locale:'pt-br',
-                        events: {
-				url: '../../funcao/buscarCal.php?id='+id,
-				error: function() {
-					$('#script-warning').show();
-				}
-			},
-			loading: function(bool) {
-				$('#loading').toggle(bool);
-			}
+                        locale:'pt-br',
+			events: [
+                           <?php 
+                                  $eventos;
+      $consulta = mysql_query("SELECT * FROM `calendario` where `turma` = $idTurma");
+      $linhas = mysql_num_rows($consulta);
+      for($i=0; $i< $linhas; $i++){
+                                    $Id = mysql_result($consulta,$i,"id");
+                                    $Titulo = mysql_result($consulta,$i,"titulo");                   
+                 
+                                    $DInicio = mysql_result($consulta,$i,"dataInicio");
+                                    $DFinal=mysql_result($consulta,$i,"dataFim");      
+                                    $color = mysql_result($consulta,$i,"cor");  ;
+      
+                    ?>	
+                       <?php echo "{";?>
+                           <?php echo "id: $Id,";?>
+                               <?php echo "title:'$Titulo',";?>
+                                   <?php echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/teste.php?id=$Id',";?>
+                                       <?php echo "start:'$DInicio"."T14:30:00' ,";?>
+                                          <?php echo "end:'$DFinal"."T14:40:00' ,";?> 
+                                             <?php echo "color: '$color'";?>   
+                                               <?php echo "}";?>
+                                                   <?php echo ",";?>
+            
+           
+      <?php } ?>
+                        ]
 		});
                
         $(function grafico(){
