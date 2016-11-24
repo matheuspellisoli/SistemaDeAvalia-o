@@ -269,6 +269,19 @@ date_default_timezone_set('America/Sao_Paulo');
           <div class="col-lg-12  panel panel-default"> 
               <!---------------------------------------->
                <div id='Aluno' style="margin-top: 2%">
+                   
+                   <div class="col-lg-12">
+               <div class="col-lg-2 "></div>            
+        <button class="col-lg-4  panel panel-default" style="padding:1%" id="btnCalendario">
+          <div class="glyphicon glyphicon-plus col-lg-2" style="font-size: 200%"></div>
+          <div class=" col-lg-9" style="font-size: 150%">Adicionar aluno</div>
+      </button>
+      <button class="col-lg-4  panel panel-default" style="padding:1%" id="btnGrafico">
+          <div class="glyphicon glyphicon-list-alt col-lg-2" style="font-size: 200%"></div>
+          <div class=" col-lg-9" style="font-size: 150%">Gerengiar grupos</div>
+      </button>
+                    <div class="col-lg-2 "></div>           
+                   </div>
 
   <table class="table table-striped">
     <thead>
@@ -407,10 +420,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <div class="modal-body">
         <p>Deseja excluir o turma</p>
       </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Sim</button>
-        
+      <div class="modal-footer">    
+          <div class="form-group col-lg-12">              
+            <form action="../funcao/FuncExcluiTurma.php" method="Post">
+                <button type="submit" class="btn btn-default " data-dismiss="modal">Não</button> 
+              <input type="hidden" name="id" value="<?php echo $idTurma;?>">
+              <button type="submit" class="btn btn-default">Sim</button>
+          </form>  
+          </div>         
+          
       </div>
     </div>
 

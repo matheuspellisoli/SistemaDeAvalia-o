@@ -130,4 +130,4 @@ function dias_de_aula($datainciao,$semanhas){
             mysql_query("$sql") or die (mysql_error());
 }
 
-header('Location:../Paginas/index.php');
+header('Location:../Paginas/PaginaDoProfessor.php');
