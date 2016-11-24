@@ -1,25 +1,16 @@
 <?php
 global $con;
-$con = mysqli_connect('localhost','root','260398');
+$con = mysqli_connect('localhost','root','');
 if (!$con){
 die('Não pode conectar:' .mysql_error($con));
 }
-mysqli_select_db($con,"testeSelctsCareg");
+mysqli_select_db($con,"banca1");
 if(!isset($_POST['parm'])){
 call_user_func($_POST['func']);
 }else{
     call_user_func_array($_POST['func'],($_POST['parm']));
 }
-function buscarTurmas(){ 
-global $con;
-$sql=("SELECT * FROM `turmas`");
-$result = mysqli_query($con,$sql);
-while($resultado = mysqli_fetch_assoc($result) ){
-     $vetor[] = array_map('utf8_encode', $resultado); 
-    }    
-    //Passando vetor em forma de json
-    echo json_encode($vetor);   
-}
+buscarGrupos(10);
 function buscarGrupos($id){
      global $con;
 $sql=("SELECT * FROM `grupos` WHERE `idTurma` ='$id'");
