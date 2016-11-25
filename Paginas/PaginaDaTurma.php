@@ -20,7 +20,7 @@ date_default_timezone_set('America/Sao_Paulo');
   <link href='../fullcalendar-3.0.1/fullcalendar.print.css' rel='stylesheet' media='print' />
   <script src='../fullcalendar-3.0.1/lib/moment.min.js'></script>
   <script src='../jquery-3.1.1.min.js'></script>
-
+  <script src="../ckeditor/ckeditor.js"></script>
   <script src='../fullcalendar-3.0.1/fullcalendar.min.js'></script>  
   <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -220,7 +220,7 @@ date_default_timezone_set('America/Sao_Paulo');
       <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class=""><a href="#">Home</a></li>
+        <li class=""><a href="../Paginas/PaginaDoProfessor.php">Home</a></li>
       <li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li> 
     </ul>
@@ -357,48 +357,15 @@ date_default_timezone_set('America/Sao_Paulo');
          <div class=" col-lg-4"></div>
     <div class="col-sm-3"> </div>
   </div>
-     <div id='forum' style="margin-top: 2%">
+     <div id='forum' style="margin-top: 2%">                 
+         
          <div  class="col-lg-12">
-             <!-- Media inicio-->
-<div class="media">
-  <div class="media-left">
-      <img src="../user.jpg" class="media-object" style="width:60px">
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">Tiago</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-  </div>
-</div>       
-    <!-- Midia Final -->
-     <!-- Media inicio-->
-<div class="media">
-  <div class="media-right">
-      <img src="../user.jpg" class="media-object" style="width:60px">
-  </div>
-  <div class="media-body" >
-    <h4 class="media-heading">Paula</h4>
-    <h1><em>uohjcildbte</em></h1>
-
-<p>gf n,kgfjdhg</p>
-
-<p>]gjvladbv&nbsp;</p>
-
-<p>tkjo mhlyio</p>
-
-<p>dfssoj bmhlohgti</p>
-
-<p>kugrbva</p>
-
-<p>]</p>
-
-  </div>
-</div>       
-    <!-- Midia Final -->
-             </div>
+             <button type="submit" class="btn btn-default  col-lg-12"  data-toggle="modal" data-target="#FaserPergunta" style=" margin-bottom: 5%;">   
+             <span class="glyphicon glyphicon-envelope"></span>
+            Fazer pergunta
+</button>
+            
+         </div>
     </div>         
 </div>
     </script>
@@ -475,6 +442,62 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         
       </div>
     </div>
+    
+    
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="FaserPergunta" class="modal fade" role="dialog" >
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Fazer pergunta</h4>
+      </div>
+      <div class="modal-body" class=" col-lg-12">
+          <div>
+              <div class=" col-lg-12" >                
+            <div class="form-group">
+                <div  class="col-lg-1"></div>
+             <form method="Post" enctype="multipart/form-data" action="#" class="col-lg-10">
+                 <div  class="col-lg-12">
+            <label for="titulo" style="margin-top: 5% ">Titulo</label>
+        <input type="text"  name="titulo" class="form-control " id="email" style="margin-top: 2% ;margin-bottom:2%">
+        </div>
+        <div  class="col-lg-12">
+            <label for="titulo" style="margin-bottom:2% ">Pergunta</label> 
+                    <textarea name="editor1" class="col-lg-10" id="editor1" rows="5" cols="80" style="resize:none ;margin-top: 10%">                
+            </textarea>
+         </div>
+                   <div  class="col-lg-12">
+             <button type="submit" class="btn btn-default  col-lg-12"  style=" margin-bottom: 5%;">   
+             <span class="glyphicon glyphicon-log-out"></span>
+            Fazer vergunta
+</button>
+           </div>   
+                       <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+                CKEDITOR.replace('body', {height: 500});
+            </script>
+       </form>      
+     </div>
+           </div> 
+          </div>
+                    
+          
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+    
+    
 
   </div>
 </div>
