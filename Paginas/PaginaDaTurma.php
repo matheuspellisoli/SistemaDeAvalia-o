@@ -83,7 +83,7 @@ date_default_timezone_set('America/Sao_Paulo');
                        <?php echo "{";?>
                            <?php echo "id: $Id,";?>
                                <?php echo "title:'$Titulo',";?>
-                                   <?php echo "url:'http://localhost/Calendario/Paginas/teste.php?id=$Id',";?>
+                                   <?php echo "url:'http://localhost/Calendario/Paginas/tarefa.php?id=$Id',";?>
                                        <?php echo "start:'$DInicio"."T$hora' ,";?>
                                           <?php echo "end:'$DFinal"."T$hora' ,";?> 
                                              <?php echo "color: '$color'";?>   

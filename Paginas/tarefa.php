@@ -22,9 +22,17 @@ and open the template in the editor.
                                     $DInicio = mysql_result($consulta,$i,"dataInicio");
                                     $DFinal=mysql_result($consulta,$i,"dataFim");
                                     $Descricao = mysql_result($consulta,$i,"descricao");
+                                    $status = mysql_result($consulta,$i,"status");
                                    
-        echo "$Id , $Titulo , $DInicio , $DFinal ,$Descricao <br>";  
+        echo "$Id , $Titulo , $DInicio , $DFinal ,$Descricao , $status <br>";  
       }
+      
+      if ($status == 0) {
+   echo "Agendar tarefa";
+} else {
+    echo "tarefa";
+}
+      
                     ?>
        
     </body>
