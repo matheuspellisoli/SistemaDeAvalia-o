@@ -6,6 +6,8 @@ $nome = $_POST['titulo'];
 $Turma_nome = "Turma_$nome"."_".$data."_".$horas;
 $optionArray = $_POST['check_list'];
 $qntSemana = $_POST['semanas'];
+$hi = $_POST['horasI'];
+$hf = $_POST['horasF'];
 
 if(file_exists($file_tmp = $_FILES["file"]["tmp_name"] )){ 
 $file_tmp = $_FILES["file"]["tmp_name"];
@@ -56,7 +58,7 @@ if(isset($_POST['check_list'])){
          for ($I = 0; $I < count($datasA); $I++) {
              echo "Semana: ".($I+1)."<br>";
              echo "$datasA[$I]<br>";
-             grava_data_disponivel_para_turma($datasA[$I],$idTurma);
+             grava_data_disponivel_para_turma($datasA[$I],$idTurma,$hi,$hf);
          }
         break;
     case "terça":
@@ -64,7 +66,7 @@ if(isset($_POST['check_list'])){
          for ($I = 0; $I < count($datasA); $I++) {
              echo "Semana: ".($I+1)."<br>";
              echo "$datasA[$I]<br>";
-             grava_data_disponivel_para_turma($datasA[$I],$idTurma);
+             grava_data_disponivel_para_turma($datasA[$I],$idTurma,$hi,$hf);
          }
         break;
     case "quarta":
@@ -72,7 +74,7 @@ if(isset($_POST['check_list'])){
          for ($I = 0; $I < count($datasA); $I++) {
              echo "Semana: ".($I+1)."<br>";
              echo "$datasA[$I]<br>";
-             grava_data_disponivel_para_turma($datasA[$I],$idTurma);
+             grava_data_disponivel_para_turma($datasA[$I],$idTurma,$hi,$hf);
          }
         break;
      case "quinta":
@@ -80,7 +82,7 @@ if(isset($_POST['check_list'])){
          for ($I = 0; $I < count($datasA); $I++) {
             echo "Semana:".($I+1)."<br>";
             echo "$datasA[$I]<br>";
-             grava_data_disponivel_para_turma($datasA[$I],$idTurma);
+             grava_data_disponivel_para_turma($datasA[$I],$idTurma,$hi,$hf);
          }
         break;
      case "sexta":
@@ -88,7 +90,7 @@ if(isset($_POST['check_list'])){
          for ($I = 0; $I < count($datasA); $I++) {
             echo "Semana: ".($I+1)."<br>";
              echo "$datasA[$I]<br>";
-             grava_data_disponivel_para_turma($datasA[$I],$idTurma);
+             grava_data_disponivel_para_turma($datasA[$I],$idTurma,$hi,$hf);
          }
         break;
 }
@@ -113,6 +115,34 @@ function acha_dias($seguunda,$diaAcahar){
     }
     }    
 }
+
+function horasPorgurupo($horaI,$horaH) {
+    date_default_timezone_set('America/Sao_Paulo');
+    IF($horaI<$horaH){    
+        $h0 = $horaH - $horaI;
+        echo "h0 : $h0 <br> ";
+        $h1 = abs(ceil($h0 * 0.95));
+         echo "h1 : $h1 <br> ";
+        $h2 = abs(ceil($h1 * 60)); 
+         echo "h2 : $h2 <br> ";
+        $h3 = abs(ceil(($h2 * 100) / 60));
+         echo "h3 : $h3 <br> ";
+        $h4 = abs(ceil(($h3 / 60) * 10));
+         echo "h4 : $h4 <br> <br> ";
+        $horaNovaFormatada = "$horaI:00";
+        for ($i = 0; $i < $h1 ; $i++) {
+            $horaNova = strtotime("$horaNovaFormatada + $h4 minutes");
+             // Formato o resultado
+                $horaNovaFormatada = date("H:i",$horaNova);
+                // Mostro na tela
+                //echo "h".($i+1).":  ".$horaNovaFormatada."<br>";
+                $arreyHora[$i] = $horaNovaFormatada;
+        }
+        return $arreyHora;
+    } else {
+        echo 'HORA HORA FINAL     <BR> '; 
+    }
+}
 function dias_de_aula($datainciao,$semanhas){
         $dataTmp = $datainciao;      
         for ($d = 0; $d < $semanhas; $d++) {            
@@ -123,11 +153,13 @@ function dias_de_aula($datainciao,$semanhas){
         return($datas);
         }   
     
-        function grava_data_disponivel_para_turma($data,$turma) {
-            $sql = "INSERT INTO `calendario`(`titulo`, `descricao`, `dataInicio`, `dataFim`,`turma`)"
-                    . "VALUES ('data disponivel','crie uma tareja nesta data','$data','$data',$turma)";
-            
+function grava_data_disponivel_para_turma($data,$turma,$hi,$hf) {
+$h = horasPorgurupo($hi, $hf);
+ for ($j = 0; $j < count($h); $j++) {
+            $sql = "INSERT INTO `calendario`(`titulo`, `descricao`, `dataInicio`, `dataFim`,`turma`,`hora`)"
+                    . "VALUES ('data disponivel','crie uma tarefa nesta data','$data','$data',$turma,'$h[$j]')";            
             mysql_query("$sql") or die (mysql_error());
+            }
 }
 
 header('Location:../Paginas/PaginaDoProfessor.php');

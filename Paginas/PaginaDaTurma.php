@@ -75,16 +75,17 @@ date_default_timezone_set('America/Sao_Paulo');
                  
                                     $DInicio = mysql_result($consulta,$i,"dataInicio");
                                     $DFinal=mysql_result($consulta,$i,"dataFim");      
-                                    $color = mysql_result($consulta,$i,"cor");  ;
+                                    $color = mysql_result($consulta,$i,"cor");  
+                                    $hora = mysql_result($consulta,$i,"hora"); 
       
                     ?>	
                                     
                        <?php echo "{";?>
                            <?php echo "id: $Id,";?>
                                <?php echo "title:'$Titulo',";?>
-                                   <?php echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/teste.php?id=$Id',";?>
-                                       <?php echo "start:'$DInicio"."T14:30:00' ,";?>
-                                          <?php echo "end:'$DFinal"."T14:40:00' ,";?> 
+                                   <?php echo "url:'http://localhost/Calendario/Paginas/teste.php?id=$Id',";?>
+                                       <?php echo "start:'$DInicio"."T$hora' ,";?>
+                                          <?php echo "end:'$DFinal"."T$hora' ,";?> 
                                              <?php echo "color: '$color'";?>   
                                                <?php echo "}";?>
                                                    <?php echo ",";?>
