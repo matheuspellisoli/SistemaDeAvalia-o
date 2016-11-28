@@ -216,7 +216,7 @@ date_default_timezone_set('America/Sao_Paulo');
     </div>
     <ul class="nav navbar-nav">
         <li class=""><a href="../Paginas/PaginaDoProfessor.php">Home</a></li>
-      <li><a href="#">Page 1</a></li>
+      <li><a href="../Paginas/forum.php">forum</a></li>
       <li><a href="#">Page 2</a></li> 
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -236,8 +236,7 @@ date_default_timezone_set('America/Sao_Paulo');
     <div class="col-sm-6"></div>
       <div class="container">
             
-  <div class="col-lg-12 "> 
-      <div class="col-lg-1 "></div> 
+  <div class="col-lg-12 ">        
       <button class="col-lg-3  panel panel-default" style="padding:1%;" id="btnAluno">
           <div class="glyphicon glyphicon-user col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%;">Alunos</div>
@@ -255,7 +254,7 @@ date_default_timezone_set('America/Sao_Paulo');
           <div class="glyphicon glyphicon-cog col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Configurar</div>
       </button> 
-       <div class="col-lg-1 "></div>   
+        
   </div>
          
       </div>

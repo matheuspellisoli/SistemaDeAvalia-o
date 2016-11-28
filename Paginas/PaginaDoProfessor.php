@@ -28,11 +28,11 @@ and open the template in the editor.
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="">Logo</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class=""><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
+      <li class=""><a href="../Paginas/PaginaDoProfessor.php" >Home</a></li>
+      <li><a href="../Paginas/forum.php">forum</a></li>
       <li><a href="#">Page 2</a></li> 
     </ul>
     <ul class="nav navbar-nav navbar-right">
