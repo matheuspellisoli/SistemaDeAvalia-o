@@ -18,6 +18,7 @@ and open the template in the editor.
   <script src='../fullcalendar-3.0.1/lib/moment.min.js'></script>
   <script src='../fullcalendar-3.0.1/lib/jquery.min.js'></script>
   <script src='../fullcalendar-3.0.1/fullcalendar.min.js'></script>
+ 
   
         <title></title>
         
@@ -58,7 +59,7 @@ and open the template in the editor.
         
         
         <div class="col-lg-12" style="margin-top: 5%">
-    <div class="col-lg-2"></div>
+        <div class="col-lg-2"></div>
             <div class="panel panel-default col-lg-8">
                 <div class="panel-body" style="text-align:center;"><h3>Forum</h3></div>
             </div>
@@ -88,7 +89,7 @@ and open the template in the editor.
     ?>
     <div class="col-lg-12"> 
         <div class="col-lg-1"></div>
-        <div class="col-lg-10"> 
+        <div class="col-lg-8"> 
             
             <div class="container panel panel-default" style="padding: 1%   "> 
   <!-- Left-aligned media object -->
@@ -100,8 +101,13 @@ and open the template in the editor.
       <h4 class="media-heading">Tiago marcos alves</h4>
       <p><?php echo "$pergunta";  ?></p>
     </div>
+      <form action="../Paginas/ResposderForum.php" style="margin:1%" method="post">
+      <button class="col-lg-12 btn btn-default" type="submit">Responder</button>
+      <input type="hidden" name="pergunta" value="<?php echo "$pergunta";  ?>">
+  </form>   
   </div>
   <hr>
+  
   <?php
    $sql_user = mysql_query("SELECT * FROM `forumresposta` WHERE `idpergunta` = $idpergunta ");
         while ($resp = mysql_fetch_object($sql_user)) {
@@ -123,7 +129,7 @@ and open the template in the editor.
                    }
                    
  				
-  ?>
+  ?>  
 </div>
     </div>
         </div>
@@ -133,6 +139,8 @@ and open the template in the editor.
                    }
  				
   ?>
+    
+    
    <div class="col-sm-12" align="center">
  
   <nav aria-label="Page navigation">
