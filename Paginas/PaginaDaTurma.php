@@ -238,23 +238,20 @@ date_default_timezone_set('America/Sao_Paulo');
             
   <div class="col-lg-12 "> 
       <div class="col-lg-1 "></div> 
-      <button class="col-lg-2  panel panel-default" style="padding:1%;" id="btnAluno">
+      <button class="col-lg-3  panel panel-default" style="padding:1%;" id="btnAluno">
           <div class="glyphicon glyphicon-user col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%;">Alunos</div>
       </button>
-      <button class="col-lg-2  panel panel-default" style="padding:1%" id="btnCalendario">
+      <button class="col-lg-3  panel panel-default" style="padding:1%" id="btnCalendario">
           <div class="glyphicon glyphicon-calendar col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Calendario</div>
       </button>
-      <button class="col-lg-2  panel panel-default" style="padding:1%" id="btnGrafico">
+      <button class="col-lg-3  panel panel-default" style="padding:1%" id="btnGrafico">
           <div class="glyphicon glyphicon-random col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Graficos</div>
       </button>
-      <button class="col-lg-2  panel panel-default" style="padding:1%" id="btnForunTutma">
-          <div class="glyphicon glyphicon-comment col-lg-2" style="font-size: 200%"></div>
-          <div class=" col-lg-9" style="font-size: 150%">forum</div>
-      </button>  
-      <button class="col-lg-2  panel panel-default" style="padding:1%" id="btnEditarTutma">
+       
+      <button class="col-lg-3  panel panel-default" style="padding:1%" id="btnEditarTutma">
           <div class="glyphicon glyphicon-cog col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Configurar</div>
       </button> 
@@ -351,16 +348,7 @@ date_default_timezone_set('America/Sao_Paulo');
          <div class=" col-lg-4"></div>
     <div class="col-sm-3"> </div>
   </div>
-     <div id='forum' style="margin-top: 2%">                 
-         
-         <div  class="col-lg-12">
-             <button type="submit" class="btn btn-default  col-lg-12"  data-toggle="modal" data-target="#FaserPergunta" style=" margin-bottom: 5%;">   
-             <span class="glyphicon glyphicon-envelope"></span>
-            Fazer pergunta
-</button>
             
-         </div>
-    </div>         
 </div>
     </script>
 
@@ -442,58 +430,5 @@ date_default_timezone_set('America/Sao_Paulo');
   </div>
 </div>
 
-<!-- Modal -->
-<div id="FaserPergunta" class="modal fade" role="dialog" >
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Fazer pergunta</h4>
-      </div>
-      <div class="modal-body" class=" col-lg-12">
-          <div>
-              <div class=" col-lg-12" >                
-            <div class="form-group">
-                <div  class="col-lg-1"></div>
-             <form method="Post" enctype="multipart/form-data" action="#" class="col-lg-10">
-                 <div  class="col-lg-12">
-            <label for="titulo" style="margin-top: 5% ">Titulo</label>
-        <input type="text"  name="titulo" class="form-control " id="email" style="margin-top: 2% ;margin-bottom:2%">
-        </div>
-        <div  class="col-lg-12">
-            <label for="titulo" style="margin-bottom:2% ">Pergunta</label> 
-                    <textarea name="editor1" class="col-lg-10" id="editor1" rows="5" cols="80" style="resize:none ;margin-top: 10%">                
-            </textarea>
-         </div>
-                   <div  class="col-lg-12">
-             <button type="submit" class="btn btn-default  col-lg-12"  style=" margin-bottom: 5%;">   
-             <span class="glyphicon glyphicon-log-out"></span>
-            Fazer vergunta
-</button>
-           </div>   
-                       <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'editor1' );
-                CKEDITOR.replace('body', {height: 500});
-            </script>
-       </form>      
-     </div>
-           </div> 
-          </div>
-                    
-          
-      </div>
-      <div class="modal-footer">
-        
-      </div>
-    </div>
-    
-    
-
-  </div>
-</div>
 </body>
 </html>
