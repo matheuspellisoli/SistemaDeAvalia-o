@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Nov-2016 às 17:47
+-- Generation Time: 29-Nov-2016 às 20:53
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -97,8 +97,10 @@ CREATE TABLE `forumpergunta` (
 --
 
 INSERT INTO `forumpergunta` (`idpergunta`, `descricao`, `idturma`, `data`, `Idusuer`) VALUES
-(1, 'Como esta o projeto de vocês ', 20, '2016-11-28 14:18:36', 2),
-(2, 'teste', 20, '2016-11-28 16:16:36', 2);
+(1, 'Como esta o projeto de vocês ', 0, '2016-11-28 14:18:36', 2),
+(2, 'teste', 0, '2016-11-28 16:16:36', 2),
+(3, 'teste1', 0, '2016-11-29 19:44:29', 2),
+(4, '<p>Ola quero saber &nbsp;como fazer um txtbox</p>\r\n', 0, '2016-11-29 19:48:47', 2);
 
 -- --------------------------------------------------------
 
@@ -130,7 +132,8 @@ INSERT INTO `forumresposta` (`idresposta`, `idpergunta`, `resposta`, `Idusuer`, 
 (12, 2, '<p>rdjtbhji teste ckedtor&nbsp;</p>\r\n', 2, '2016-11-29 14:31:57'),
 (13, 1, '<p>Um&nbsp;<strong>jogo eletr&ocirc;nico</strong>&nbsp;<sup>(portugu&ecirc;s brasileiro)</sup>&nbsp;ou&nbsp;<strong>jogo eletr&oacute;nico</strong>&nbsp;<sup>(portugu&ecirc;s europeu)</sup>&nbsp;(ou tamb&eacute;m&nbsp;<strong>videogame</strong>&nbsp;ou&nbsp;<strong>v&iacute;deo game</strong>&nbsp;no Brasil e&nbsp;<strong>jogo de v&iacute;deo</strong>&nbsp;ou&nbsp;<strong>videojogo</strong>, em Portugal), &eacute; um&nbsp;jogo&nbsp;no qual o jogador i<em>nterage </em>com imagens <sup>enviadas a um </sup>dispositivo que as exibe, geralmente u<u>ma&nbsp;televis&atilde;o&nbsp;ou um</u>&nbsp;monitor. O termo&nbsp;<strong>videogame</strong>, tamb&eacute;m, &eacute; amplamente utilizado, no Brasil, para se referir ao&nbsp;console&nbsp;onde os jogos s&atilde;o processados.</p>\r\n\r\n<p>Os sistemas eletr&ocirc;nicos usados para jogar videogames s&atilde;o conhecidos como&nbsp;plataformas&nbsp;&mdash; <span style="font-family:Georgia,serif"><strong>como por exemplo&nbsp;com</strong></span>putadores', 2, '2016-11-29 14:34:07'),
 (14, 1, '<p>Um&nbsp;<strong>jogo eletr&ocirc;nico</strong>&nbsp;<sup>(portugu&ecirc;s brasileiro)</sup>&nbsp;ou&nbsp;<strong>jogo eletr&oacute;nico</strong>&nbsp;<sup>(portugu&ecirc;s europeu)</sup>&nbsp;(ou tamb&eacute;m&nbsp;<strong>videogame</strong>&nbsp;ou&nbsp;<strong>v&iacute;deo game</strong>&nbsp;no Brasil e&nbsp;<strong>jogo de v&iacute;deo</strong>&nbsp;ou&nbsp;<strong>videojogo</strong>, em Portugal), &eacute; um&nbsp;jogo&nbsp;no qual o jogador interage com imagens enviadas a um dispositivo que as exibe, geralmente uma&nbsp;televis&atilde;o&nbsp;ou um&nbsp;monitor. O termo&nbsp;<strong>videogame</strong>, tamb&eacute;m, &eacute; amplamente utilizado, no Brasil, para se referir ao&nbsp;console&nbsp;onde os jogos s&atilde;o processados.</p>\r\n\r\n<p>Os sistemas eletr&ocirc;nicos usados para jogar videogames s&atilde;o conhecidos como&nbsp;plataformas&nbsp;&mdash; como por exemplo&nbsp;computadores&nbsp;e consoles. Os&nbsp;arcades&nbsp;e&nbsp;celulares&nbsp;s&atilde;o tamb&eacute;m bons ', 2, '2016-11-29 14:34:33'),
-(15, 1, '<p><span style="background-color:#800000">fdbfs</span></p>\r\n', 2, '2016-11-29 14:36:03');
+(15, 1, '<p><span style="background-color:#800000">fdbfs</span></p>\r\n', 2, '2016-11-29 14:36:03'),
+(16, 4, '<p>usa</p>\r\n', 2, '2016-11-29 19:48:53');
 
 -- --------------------------------------------------------
 
@@ -394,12 +397,12 @@ ALTER TABLE `calendario`
 -- AUTO_INCREMENT for table `forumpergunta`
 --
 ALTER TABLE `forumpergunta`
-  MODIFY `idpergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idpergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `forumresposta`
 --
 ALTER TABLE `forumresposta`
-  MODIFY `idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `grupos`
 --
