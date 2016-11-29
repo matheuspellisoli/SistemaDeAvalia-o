@@ -59,18 +59,24 @@ and open the template in the editor.
         
         
         <div class="col-lg-12" style="margin-top: 5%">
-          
-            
-        <div class="col-lg-2"></div>
+           <div class="col-lg-12">
+               <div class="col-lg-2"></div>
             <div class="panel panel-default col-lg-8">
                 <div class="panel-body" style="text-align:center;"><h3>Forum</h3></div>
             </div>
-      <form action="#" style="margin:1%;margin-bottom: 5%" method="post">          
+        </div>
+        <div class="col-lg-12">
+               <div class="col-lg-2"></div>
+               <div class="col-lg-8" style="margin-bottom: 2%">
+                   <form action="../Paginas/PerguntarForum.php"  method="post">          
       <button class="col-lg-12 btn btn-default" type="submit">Fazer uma pergunta</button>
       
   </form>
+            </div>
+        </div>
+    <div class="col-lg-12">  
     <?php    
-    $consulta = mysql_query("SELECT * FROM `forumpergunta` WHERE `idturma`= $IdTurma ORDER BY `forumpergunta`.`data` DESC ");
+    $consulta = mysql_query("SELECT * FROM `forumpergunta`  ORDER BY `forumpergunta`.`data` DESC ");
                     $linhas = mysql_num_rows($consulta);
                 //quantidade de conteudo exibido por pagina		
                 
@@ -92,18 +98,16 @@ and open the template in the editor.
                             $idpergunta = mysql_result($consulta,$i,"idpergunta");
                             
     ?>
-    <div class="col-lg-12"> 
-        <div class="col-lg-1"></div>
-        <div class="col-lg-8"> 
-            
-            <div class="container panel panel-default" style="padding: 1%   "> 
+    <div class="col-lg-12">   
+        <div class="col-lg-2"></div> 
+<div class="container panel panel-default col-lg-8" > 
   <!-- Left-aligned media object -->
   <div class="media">
     <div class="media-left">
-        <img src="../user.jpg" class="media-object" style="width:60px">
+        <img src="../user.jpg" class="media-object" style="width:60px;margin-top:5%">
     </div>
     <div class="media-body">
-      <h4 class="media-heading">Tiago marcos alves</h4>
+      <h4 class="media-heading" style="margin-top:5%">Tiago marcos alves</h4>
       <p><?php echo "$pergunta";  ?></p>
     </div>
       <form action="../Paginas/ResposderForum.php" style="margin:1%" method="post">
@@ -131,22 +135,21 @@ and open the template in the editor.
     </div>
   </div>
   <hr>
-      <?php 
-       
-                   }
-                   
- 				
+    <?php 
+    }	
   ?>  
 </div>
+        <div class="col-lg-2"></div> 
     </div>
-        </div>
+      
       <?php 
        
                    }
                    }
  				
   ?>
-    
+          </div>
+   </div> 
     
    <div class="col-sm-12" align="center">
  
@@ -196,4 +199,3 @@ and open the template in the editor.
     </div>
 </body>
 </html>
-
