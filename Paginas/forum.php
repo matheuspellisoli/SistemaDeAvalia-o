@@ -52,18 +52,23 @@ and open the template in the editor.
                 }  else {
                 header("Location:../Paginas/forum.php?pag=1");
                 }                      
-                    $qtitenspag = 4;                    
+                    $qtitenspag = 2;                    
                               
            
       ?>
         
         
         <div class="col-lg-12" style="margin-top: 5%">
+          
+            
         <div class="col-lg-2"></div>
             <div class="panel panel-default col-lg-8">
                 <div class="panel-body" style="text-align:center;"><h3>Forum</h3></div>
             </div>
-    
+      <form action="#" style="margin:1%;margin-bottom: 5%" method="post">          
+      <button class="col-lg-12 btn btn-default" type="submit">Fazer uma pergunta</button>
+      
+  </form>
     <?php    
     $consulta = mysql_query("SELECT * FROM `forumpergunta` WHERE `idturma`= $IdTurma ORDER BY `forumpergunta`.`data` DESC ");
                     $linhas = mysql_num_rows($consulta);
@@ -102,14 +107,16 @@ and open the template in the editor.
       <p><?php echo "$pergunta";  ?></p>
     </div>
       <form action="../Paginas/ResposderForum.php" style="margin:1%" method="post">
+          <input type="hidden" name="pergunta" value="<?php echo "$pergunta";  ?>">
+      <input type="hidden" name="idPergunta" value="<?php echo "$idpergunta";  ?>">
       <button class="col-lg-12 btn btn-default" type="submit">Responder</button>
-      <input type="hidden" name="pergunta" value="<?php echo "$pergunta";  ?>">
+      
   </form>   
   </div>
   <hr>
   
   <?php
-   $sql_user = mysql_query("SELECT * FROM `forumresposta` WHERE `idpergunta` = $idpergunta ");
+   $sql_user = mysql_query("SELECT * FROM `forumresposta` WHERE `idpergunta` = $idpergunta  ORDER BY `forumresposta`.`data` DESC ");
         while ($resp = mysql_fetch_object($sql_user)) {
             $resposta = $resp->resposta;
             ?>
@@ -117,7 +124,7 @@ and open the template in the editor.
   <div class="media">
     <div class="media-body">
       <h4 class="media-heading">Right-aligned</h4>
-    <p><?php echo "$resposta";  ?></p>  
+    <?php echo "$resposta";  ?> 
     </div>
     <div class="media-right">
         <img src="../user.jpg" class="media-object" style="width:60px">

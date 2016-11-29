@@ -16,7 +16,10 @@
 </head>
 <body>
     <?php
-    $pergunta = $_POST['pergunta']
+    $pergunta = $_POST['pergunta'];
+    $Idusuer = 2;
+    $idPergumta = $_POST['idPergunta'];   
+   
     ?>
           
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -38,18 +41,20 @@
     <div class="col-lg-12" style="margin-top: 5%">   
         <div class="col-lg-1" ></div>
         <div class="panel panel-body col-lg-10">      
-      <p><?php echo "$pergunta";  ?></p>
+      <p><?php echo "$pergunta"?></p>
     </div>        
         <div class="col-lg-1" ></div>
         <div class="col-lg-2" ></div>
          <div class="col-lg-8">
-        <form method="post" class="col-lg-12">        
-            <textarea name="editor1" id="editor1"></textarea>
+             <form method="post" class="col-lg-12" action="../funcao/FuncRespondeForum.php">        
+            <textarea name="resposta" id="editor1"></textarea>
             <script>
-                CKEDITOR.replace( 'editor1' );
+                CKEDITOR.replace( 'resposta' );
             </script>       
             
             <button class="col-lg-12 btn btn-default" type="submit">Responder</button>
+            <input type="hidden" name="idUser" value="<?php echo "$Idusuer";  ?>">
+            <input type="hidden" name="idPergunta" value="<?php echo "$idPergumta";  ?>">
     </form>
              </div>
         <div class="col-lg-2"></div>
