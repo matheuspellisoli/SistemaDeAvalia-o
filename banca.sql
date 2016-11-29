@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 28-Nov-2016 às 17:22
+-- Generation Time: 29-Nov-2016 às 17:47
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -88,16 +88,17 @@ CREATE TABLE `forumpergunta` (
   `idpergunta` int(11) NOT NULL,
   `descricao` varchar(10000) NOT NULL,
   `idturma` int(11) NOT NULL,
-  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Idusuer` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `forumpergunta`
 --
 
-INSERT INTO `forumpergunta` (`idpergunta`, `descricao`, `idturma`, `data`) VALUES
-(1, 'Como esta o projeto de vocês ', 20, '2016-11-28 14:18:36'),
-(2, 'teste', 20, '2016-11-28 16:16:36');
+INSERT INTO `forumpergunta` (`idpergunta`, `descricao`, `idturma`, `data`, `Idusuer`) VALUES
+(1, 'Como esta o projeto de vocês ', 20, '2016-11-28 14:18:36', 2),
+(2, 'teste', 20, '2016-11-28 16:16:36', 2);
 
 -- --------------------------------------------------------
 
@@ -108,18 +109,28 @@ INSERT INTO `forumpergunta` (`idpergunta`, `descricao`, `idturma`, `data`) VALUE
 CREATE TABLE `forumresposta` (
   `idresposta` int(11) NOT NULL,
   `idpergunta` int(11) NOT NULL,
-  `resposta` varchar(1000) NOT NULL
+  `resposta` varchar(1000) NOT NULL,
+  `Idusuer` int(11) NOT NULL,
+  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `forumresposta`
 --
 
-INSERT INTO `forumresposta` (`idresposta`, `idpergunta`, `resposta`) VALUES
-(1, 2, '1'),
-(2, 1, '2'),
-(3, 2, '3'),
-(4, 1, '4');
+INSERT INTO `forumresposta` (`idresposta`, `idpergunta`, `resposta`, `Idusuer`, `data`) VALUES
+(1, 2, '1', 7, '2016-11-29 14:27:52'),
+(2, 1, '2', 2, '2016-11-29 14:27:52'),
+(3, 2, '3', 1, '2016-11-29 14:27:52'),
+(4, 1, '4', 8, '2016-11-29 14:27:01'),
+(5, 2, 'srdvss\\z', 2, '2016-11-29 14:27:52'),
+(6, 2, 'bcczvhn', 2, '2016-11-29 14:27:52'),
+(10, 1, '<p>Gtursdf</p>\r\n\r\n<p><canvas :netbeans_generated="true" height="150" id="netbeans_glasspane" style="position: fixed; top: 0px; left: 0px; z-index: 50000; pointer-events: none;" width="829"></canvas></p>\r\n', 2, '2016-11-29 14:27:52'),
+(11, 2, '<p>drvthbf</p>\r\n\r\n<p><canvas :netbeans_generated="true" height="150" id="netbeans_glasspane" style="position: fixed; top: 0px; left: 0px; z-index: 50000; pointer-events: none;" width="829"></canvas></p>\r\n', 2, '2016-11-29 14:28:32'),
+(12, 2, '<p>rdjtbhji teste ckedtor&nbsp;</p>\r\n', 2, '2016-11-29 14:31:57'),
+(13, 1, '<p>Um&nbsp;<strong>jogo eletr&ocirc;nico</strong>&nbsp;<sup>(portugu&ecirc;s brasileiro)</sup>&nbsp;ou&nbsp;<strong>jogo eletr&oacute;nico</strong>&nbsp;<sup>(portugu&ecirc;s europeu)</sup>&nbsp;(ou tamb&eacute;m&nbsp;<strong>videogame</strong>&nbsp;ou&nbsp;<strong>v&iacute;deo game</strong>&nbsp;no Brasil e&nbsp;<strong>jogo de v&iacute;deo</strong>&nbsp;ou&nbsp;<strong>videojogo</strong>, em Portugal), &eacute; um&nbsp;jogo&nbsp;no qual o jogador i<em>nterage </em>com imagens <sup>enviadas a um </sup>dispositivo que as exibe, geralmente u<u>ma&nbsp;televis&atilde;o&nbsp;ou um</u>&nbsp;monitor. O termo&nbsp;<strong>videogame</strong>, tamb&eacute;m, &eacute; amplamente utilizado, no Brasil, para se referir ao&nbsp;console&nbsp;onde os jogos s&atilde;o processados.</p>\r\n\r\n<p>Os sistemas eletr&ocirc;nicos usados para jogar videogames s&atilde;o conhecidos como&nbsp;plataformas&nbsp;&mdash; <span style="font-family:Georgia,serif"><strong>como por exemplo&nbsp;com</strong></span>putadores', 2, '2016-11-29 14:34:07'),
+(14, 1, '<p>Um&nbsp;<strong>jogo eletr&ocirc;nico</strong>&nbsp;<sup>(portugu&ecirc;s brasileiro)</sup>&nbsp;ou&nbsp;<strong>jogo eletr&oacute;nico</strong>&nbsp;<sup>(portugu&ecirc;s europeu)</sup>&nbsp;(ou tamb&eacute;m&nbsp;<strong>videogame</strong>&nbsp;ou&nbsp;<strong>v&iacute;deo game</strong>&nbsp;no Brasil e&nbsp;<strong>jogo de v&iacute;deo</strong>&nbsp;ou&nbsp;<strong>videojogo</strong>, em Portugal), &eacute; um&nbsp;jogo&nbsp;no qual o jogador interage com imagens enviadas a um dispositivo que as exibe, geralmente uma&nbsp;televis&atilde;o&nbsp;ou um&nbsp;monitor. O termo&nbsp;<strong>videogame</strong>, tamb&eacute;m, &eacute; amplamente utilizado, no Brasil, para se referir ao&nbsp;console&nbsp;onde os jogos s&atilde;o processados.</p>\r\n\r\n<p>Os sistemas eletr&ocirc;nicos usados para jogar videogames s&atilde;o conhecidos como&nbsp;plataformas&nbsp;&mdash; como por exemplo&nbsp;computadores&nbsp;e consoles. Os&nbsp;arcades&nbsp;e&nbsp;celulares&nbsp;s&atilde;o tamb&eacute;m bons ', 2, '2016-11-29 14:34:33'),
+(15, 1, '<p><span style="background-color:#800000">fdbfs</span></p>\r\n', 2, '2016-11-29 14:36:03');
 
 -- --------------------------------------------------------
 
@@ -388,7 +399,7 @@ ALTER TABLE `forumpergunta`
 -- AUTO_INCREMENT for table `forumresposta`
 --
 ALTER TABLE `forumresposta`
-  MODIFY `idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `grupos`
 --
