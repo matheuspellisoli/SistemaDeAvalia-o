@@ -64,6 +64,7 @@ date_default_timezone_set('America/Sao_Paulo');
 			editable: false,
 			eventLimit: true, // allow "more" link when too many events
                         locale:'pt-br',
+                        timeFormat: 'H:mm',
 			events: [
                            <?php 
                                   $eventos;
@@ -83,9 +84,9 @@ date_default_timezone_set('America/Sao_Paulo');
                        <?php echo "{";?>
                            <?php echo "id: $Id,";?>
                                <?php echo "title:'$Titulo',";?>
-                                   <?php echo "url:'http://localhost/Calendario/Paginas/tarefa.php?id=$Id',";?>
-                                       <?php echo "start:'$DInicio"."T$hora' ,";?>
-                                          <?php echo "end:'$DFinal"."T$hora' ,";?> 
+                                   <?php echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/tarefa.php?id=$Id&&idTurma=$idTurma',";?>
+                                       <?php echo "start:'$DInicio"."T$hora:00' ,";?>
+                                          <?php echo "end:'$DFinal"."T$hora:00' ,";?> 
                                              <?php echo "color: '$color'";?>   
                                                <?php echo "}";?>
                                                    <?php echo ",";?>
@@ -93,6 +94,7 @@ date_default_timezone_set('America/Sao_Paulo');
            
       <?php } ?>
                         ]
+                        
 		});
                
         $(function grafico(){
