@@ -321,7 +321,10 @@ date_default_timezone_set('America/Sao_Paulo');
               <div id='calendar' style="margin-top: 2%"></div>
               <!---------------------------------------->
               <div id='grafico' style="margin-top: 2%">
-                  <div id="container" class="col-lg-6"></div>
+                  <div id="continer" class="col-lg-6">
+                      <iframe  style="width:100%;min-height:500px;height:70%" src="http://localhost/SistemaDeAvalia-o/GraficoTeste/index.php?id=1"></iframe>
+                      
+                  </div>
                </div>
               <!---------------------------------------->
               <div id='editarTurma' style="margin-top: 2%">

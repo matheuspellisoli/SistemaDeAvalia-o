@@ -18,7 +18,7 @@ $grafico->SetPlotAreaWorld(null,0,null,10.5);
 $grafico->SetYTickIncrement(1);
 $grafico->SetDataValues($dados);
 $grafico->SetLineStyles('solid');
-
-
+$grafico->SetLineWidths(4);
+$grafico->SetPointSizes(8);
 
 $grafico->DrawGraph();  
