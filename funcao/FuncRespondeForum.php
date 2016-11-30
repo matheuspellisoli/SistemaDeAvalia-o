@@ -4,8 +4,8 @@ $idpergunta = $_POST['idPergunta'];
 $resposta = $_POST['resposta'];
 $Idusuer = $_POST['idUser'];
 
-   $sql2 = "INSERT INTO `forumresposta` (`idresposta`, `idpergunta`, `resposta`, `Idusuer`) "
-           . "VALUES (NULL, '$idpergunta', '$resposta','$Idusuer')";
+   $sql2 = "INSERT INTO `forumresposta` (`idpergunta`, `resposta`, `Iduser`) "
+           . "VALUES ('$idpergunta', '$resposta','$Idusuer')";
 //executamos a instução SQL
    
   mysql_query("$sql2") or die (mysql_error()); 

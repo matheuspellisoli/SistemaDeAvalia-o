@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Nov-2016 às 20:55
--- Versão do servidor: 10.1.19-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: 30-Nov-2016 às 23:24
+-- Versão do servidor: 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `banca1`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `calendario`
 --
 
-CREATE TABLE `calendario` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `calendario` (
+`id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `dataInicio` date NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `calendario` (
   `grupo` int(11) NOT NULL DEFAULT '0',
   `hora` varchar(100) NOT NULL DEFAULT '00:00',
   `idNota` int(11) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `calendario`
@@ -65,23 +65,23 @@ INSERT INTO `calendario` (`id`, `titulo`, `descricao`, `dataInicio`, `dataFim`, 
 -- Estrutura da tabela `forumpergunta`
 --
 
-CREATE TABLE `forumpergunta` (
-  `idpergunta` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `forumpergunta` (
+`idpergunta` int(11) NOT NULL,
   `descricao` varchar(10000) NOT NULL,
   `idturma` int(11) NOT NULL,
   `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Iduser` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `forumpergunta`
 --
 
 INSERT INTO `forumpergunta` (`idpergunta`, `descricao`, `idturma`, `data`, `Iduser`) VALUES
-(1, 'Como esta o projeto de vocês ', 0, '2016-11-28 14:18:36', 2),
-(2, 'teste', 0, '2016-11-28 16:16:36', 2),
-(3, 'teste1', 0, '2016-11-29 19:44:29', 2),
-(4, '<p>Ola quero saber &nbsp;como fazer um txtbox</p>\r\n', 0, '2016-11-29 19:48:47', 2);
+(1, 'Como esta o projeto de vocês ', 0, '2016-11-28 16:18:36', 2),
+(2, 'teste', 0, '2016-11-28 18:16:36', 2),
+(3, 'teste1', 0, '2016-11-29 21:44:29', 2),
+(4, '<p>Ola quero saber &nbsp;como fazer um txtbox</p>\r\n', 0, '2016-11-29 21:48:47', 2);
 
 -- --------------------------------------------------------
 
@@ -89,32 +89,34 @@ INSERT INTO `forumpergunta` (`idpergunta`, `descricao`, `idturma`, `data`, `Idus
 -- Estrutura da tabela `forumresposta`
 --
 
-CREATE TABLE `forumresposta` (
-  `idresposta` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `forumresposta` (
+`idresposta` int(11) NOT NULL,
   `idpergunta` int(11) NOT NULL,
   `resposta` varchar(1000) NOT NULL,
   `Iduser` int(11) NOT NULL,
   `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `forumresposta`
 --
 
 INSERT INTO `forumresposta` (`idresposta`, `idpergunta`, `resposta`, `Iduser`, `data`) VALUES
-(1, 2, '1', 7, '2016-11-29 14:27:52'),
-(2, 1, '2', 2, '2016-11-29 14:27:52'),
-(3, 2, '3', 1, '2016-11-29 14:27:52'),
-(4, 1, '4', 8, '2016-11-29 14:27:01'),
-(5, 2, 'srdvss\\z', 2, '2016-11-29 14:27:52'),
-(6, 2, 'bcczvhn', 2, '2016-11-29 14:27:52'),
-(10, 1, '<p>Gtursdf</p>\r\n\r\n<p><canvas :netbeans_generated="true" height="150" id="netbeans_glasspane" style="position: fixed; top: 0px; left: 0px; z-index: 50000; pointer-events: none;" width="829"></canvas></p>\r\n', 2, '2016-11-29 14:27:52'),
-(11, 2, '<p>drvthbf</p>\r\n\r\n<p><canvas :netbeans_generated="true" height="150" id="netbeans_glasspane" style="position: fixed; top: 0px; left: 0px; z-index: 50000; pointer-events: none;" width="829"></canvas></p>\r\n', 2, '2016-11-29 14:28:32'),
-(12, 2, '<p>rdjtbhji teste ckedtor&nbsp;</p>\r\n', 2, '2016-11-29 14:31:57'),
-(13, 1, '<p>Um&nbsp;<strong>jogo eletr&ocirc;nico</strong>&nbsp;<sup>(portugu&ecirc;s brasileiro)</sup>&nbsp;ou&nbsp;<strong>jogo eletr&oacute;nico</strong>&nbsp;<sup>(portugu&ecirc;s europeu)</sup>&nbsp;(ou tamb&eacute;m&nbsp;<strong>videogame</strong>&nbsp;ou&nbsp;<strong>v&iacute;deo game</strong>&nbsp;no Brasil e&nbsp;<strong>jogo de v&iacute;deo</strong>&nbsp;ou&nbsp;<strong>videojogo</strong>, em Portugal), &eacute; um&nbsp;jogo&nbsp;no qual o jogador i<em>nterage </em>com imagens <sup>enviadas a um </sup>dispositivo que as exibe, geralmente u<u>ma&nbsp;televis&atilde;o&nbsp;ou um</u>&nbsp;monitor. O termo&nbsp;<strong>videogame</strong>, tamb&eacute;m, &eacute; amplamente utilizado, no Brasil, para se referir ao&nbsp;console&nbsp;onde os jogos s&atilde;o processados.</p>\r\n\r\n<p>Os sistemas eletr&ocirc;nicos usados para jogar videogames s&atilde;o conhecidos como&nbsp;plataformas&nbsp;&mdash; <span style="font-family:Georgia,serif"><strong>como por exemplo&nbsp;com</strong></span>putadores', 2, '2016-11-29 14:34:07'),
-(14, 1, '<p>Um&nbsp;<strong>jogo eletr&ocirc;nico</strong>&nbsp;<sup>(portugu&ecirc;s brasileiro)</sup>&nbsp;ou&nbsp;<strong>jogo eletr&oacute;nico</strong>&nbsp;<sup>(portugu&ecirc;s europeu)</sup>&nbsp;(ou tamb&eacute;m&nbsp;<strong>videogame</strong>&nbsp;ou&nbsp;<strong>v&iacute;deo game</strong>&nbsp;no Brasil e&nbsp;<strong>jogo de v&iacute;deo</strong>&nbsp;ou&nbsp;<strong>videojogo</strong>, em Portugal), &eacute; um&nbsp;jogo&nbsp;no qual o jogador interage com imagens enviadas a um dispositivo que as exibe, geralmente uma&nbsp;televis&atilde;o&nbsp;ou um&nbsp;monitor. O termo&nbsp;<strong>videogame</strong>, tamb&eacute;m, &eacute; amplamente utilizado, no Brasil, para se referir ao&nbsp;console&nbsp;onde os jogos s&atilde;o processados.</p>\r\n\r\n<p>Os sistemas eletr&ocirc;nicos usados para jogar videogames s&atilde;o conhecidos como&nbsp;plataformas&nbsp;&mdash; como por exemplo&nbsp;computadores&nbsp;e consoles. Os&nbsp;arcades&nbsp;e&nbsp;celulares&nbsp;s&atilde;o tamb&eacute;m bons ', 2, '2016-11-29 14:34:33'),
-(15, 1, '<p><span style="background-color:#800000">fdbfs</span></p>\r\n', 2, '2016-11-29 14:36:03'),
-(16, 4, '<p>usa</p>\r\n', 2, '2016-11-29 19:48:53');
+(1, 2, '1', 7, '2016-11-29 16:27:52'),
+(2, 1, '2', 2, '2016-11-29 16:27:52'),
+(3, 2, '3', 1, '2016-11-29 16:27:52'),
+(4, 1, '4', 8, '2016-11-29 16:27:01'),
+(5, 2, 'srdvss\\z', 2, '2016-11-29 16:27:52'),
+(6, 2, 'bcczvhn', 2, '2016-11-29 16:27:52'),
+(10, 1, '<p>Gtursdf</p>\r\n\r\n<p><canvas :netbeans_generated="true" height="150" id="netbeans_glasspane" style="position: fixed; top: 0px; left: 0px; z-index: 50000; pointer-events: none;" width="829"></canvas></p>\r\n', 2, '2016-11-29 16:27:52'),
+(11, 2, '<p>drvthbf</p>\r\n\r\n<p><canvas :netbeans_generated="true" height="150" id="netbeans_glasspane" style="position: fixed; top: 0px; left: 0px; z-index: 50000; pointer-events: none;" width="829"></canvas></p>\r\n', 2, '2016-11-29 16:28:32'),
+(12, 2, '<p>rdjtbhji teste ckedtor&nbsp;</p>\r\n', 2, '2016-11-29 16:31:57'),
+(13, 1, '<p>Um&nbsp;<strong>jogo eletr&ocirc;nico</strong>&nbsp;<sup>(portugu&ecirc;s brasileiro)</sup>&nbsp;ou&nbsp;<strong>jogo eletr&oacute;nico</strong>&nbsp;<sup>(portugu&ecirc;s europeu)</sup>&nbsp;(ou tamb&eacute;m&nbsp;<strong>videogame</strong>&nbsp;ou&nbsp;<strong>v&iacute;deo game</strong>&nbsp;no Brasil e&nbsp;<strong>jogo de v&iacute;deo</strong>&nbsp;ou&nbsp;<strong>videojogo</strong>, em Portugal), &eacute; um&nbsp;jogo&nbsp;no qual o jogador i<em>nterage </em>com imagens <sup>enviadas a um </sup>dispositivo que as exibe, geralmente u<u>ma&nbsp;televis&atilde;o&nbsp;ou um</u>&nbsp;monitor. O termo&nbsp;<strong>videogame</strong>, tamb&eacute;m, &eacute; amplamente utilizado, no Brasil, para se referir ao&nbsp;console&nbsp;onde os jogos s&atilde;o processados.</p>\r\n\r\n<p>Os sistemas eletr&ocirc;nicos usados para jogar videogames s&atilde;o conhecidos como&nbsp;plataformas&nbsp;&mdash; <span style="font-family:Georgia,serif"><strong>como por exemplo&nbsp;com</strong></span>putadores', 2, '2016-11-29 16:34:07'),
+(14, 1, '<p>Um&nbsp;<strong>jogo eletr&ocirc;nico</strong>&nbsp;<sup>(portugu&ecirc;s brasileiro)</sup>&nbsp;ou&nbsp;<strong>jogo eletr&oacute;nico</strong>&nbsp;<sup>(portugu&ecirc;s europeu)</sup>&nbsp;(ou tamb&eacute;m&nbsp;<strong>videogame</strong>&nbsp;ou&nbsp;<strong>v&iacute;deo game</strong>&nbsp;no Brasil e&nbsp;<strong>jogo de v&iacute;deo</strong>&nbsp;ou&nbsp;<strong>videojogo</strong>, em Portugal), &eacute; um&nbsp;jogo&nbsp;no qual o jogador interage com imagens enviadas a um dispositivo que as exibe, geralmente uma&nbsp;televis&atilde;o&nbsp;ou um&nbsp;monitor. O termo&nbsp;<strong>videogame</strong>, tamb&eacute;m, &eacute; amplamente utilizado, no Brasil, para se referir ao&nbsp;console&nbsp;onde os jogos s&atilde;o processados.</p>\r\n\r\n<p>Os sistemas eletr&ocirc;nicos usados para jogar videogames s&atilde;o conhecidos como&nbsp;plataformas&nbsp;&mdash; como por exemplo&nbsp;computadores&nbsp;e consoles. Os&nbsp;arcades&nbsp;e&nbsp;celulares&nbsp;s&atilde;o tamb&eacute;m bons ', 2, '2016-11-29 16:34:33'),
+(15, 1, '<p><span style="background-color:#800000">fdbfs</span></p>\r\n', 2, '2016-11-29 16:36:03'),
+(16, 4, '<p>usa</p>\r\n', 2, '2016-11-29 21:48:53'),
+(17, 4, '<p>&nbsp;crbvh dtrnvyt</p>\r\n', 2, '2016-11-30 22:14:24'),
+(18, 3, '<p style="text-align:center">vtemiyknytkimldunbt</p>\r\n\r\n<p style="text-align:right"><span style="color:#ffffff"><span style="background-color:#a52a2a">ceftsrbhyivy]r</span></span></p>\r\n\r\n<p dir="rtl"><span style="color:#ffffff"><span style="background-color:#a52a2a">tvlhgyiptymitymopgvr</span></span></p>\r\n\r\n<p><span style="color:#ffffff"><span style="background-color:#a52a2a">rcioyivfudu8nuin</span></span></p>\r\n', 2, '2016-11-30 22:14:50');
 
 -- --------------------------------------------------------
 
@@ -122,21 +124,21 @@ INSERT INTO `forumresposta` (`idresposta`, `idpergunta`, `resposta`, `Iduser`, `
 -- Estrutura da tabela `grupos`
 --
 
-CREATE TABLE `grupos` (
-  `idGrupo` bigint(20) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `grupos` (
+`idGrupo` bigint(20) unsigned NOT NULL,
   `idTurma` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
   `numeroIntegrantes` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `grupos`
 --
 
 INSERT INTO `grupos` (`idGrupo`, `idTurma`, `nome`, `numeroIntegrantes`) VALUES
-(0, 0, 'Sem grupo', 2147483647),
 (1, 20, 'GPO_A', 2),
-(2, 20, 'GPO_B', 2);
+(2, 20, 'GPO_B', 2),
+(3, 0, 'Sem grupo', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -144,10 +146,10 @@ INSERT INTO `grupos` (`idGrupo`, `idTurma`, `nome`, `numeroIntegrantes`) VALUES
 -- Estrutura da tabela `nivelacesso`
 --
 
-CREATE TABLE `nivelacesso` (
-  `idnivelAcesso` bigint(20) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `nivelacesso` (
+`idnivelAcesso` bigint(20) unsigned NOT NULL,
   `descNivel` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `nivelacesso`
@@ -163,12 +165,12 @@ INSERT INTO `nivelacesso` (`idnivelAcesso`, `descNivel`) VALUES
 -- Estrutura da tabela `nota`
 --
 
-CREATE TABLE `nota` (
-  `idNota` bigint(20) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `nota` (
+`idNota` bigint(20) unsigned NOT NULL,
   `idAvaliacao` int(10) DEFAULT NULL,
   `idUsuario` int(10) DEFAULT NULL,
   `nota` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `nota`
@@ -189,20 +191,19 @@ INSERT INTO `nota` (`idNota`, `idAvaliacao`, `idUsuario`, `nota`) VALUES
 --
 -- Stand-in structure for view `perguntas`
 --
-CREATE TABLE `perguntas` (
+CREATE TABLE IF NOT EXISTS `perguntas` (
 `idpergunta` int(11)
 ,`descricao` varchar(10000)
 ,`data` timestamp
 ,`idUsuario` bigint(20) unsigned
 ,`nome` varchar(50)
 );
-
 -- --------------------------------------------------------
 
 --
 -- Stand-in structure for view `respostas`
 --
-CREATE TABLE `respostas` (
+CREATE TABLE IF NOT EXISTS `respostas` (
 `idresposta` int(11)
 ,`resposta` varchar(1000)
 ,`idpergunta` int(11)
@@ -211,21 +212,20 @@ CREATE TABLE `respostas` (
 ,`idUsuario` bigint(20) unsigned
 ,`nome` varchar(50)
 );
-
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `turma`
 --
 
-CREATE TABLE `turma` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `turma` (
+`id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `tipo_img` varchar(1000) NOT NULL,
   `binario` mediumblob,
   `campo_Busca` varchar(100) NOT NULL,
   `idOrientador` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `turma`
@@ -239,7 +239,7 @@ INSERT INTO `turma` (`id`, `nome`, `tipo_img`, `binario`, `campo_Busca`, `idOrie
 --
 -- Stand-in structure for view `usuarioinfo`
 --
-CREATE TABLE `usuarioinfo` (
+CREATE TABLE IF NOT EXISTS `usuarioinfo` (
 `idUsuario` bigint(20) unsigned
 ,`nome` varchar(50)
 ,`email` varchar(100)
@@ -253,15 +253,14 @@ CREATE TABLE `usuarioinfo` (
 ,`idOrientador` int(11)
 ,`orientador` varchar(50)
 );
-
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `idUsuario` bigint(20) UNSIGNED NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuarios` (
+`idUsuario` bigint(20) unsigned NOT NULL,
   `nivelAcesso_idnivelAcesso` int(11) NOT NULL DEFAULT '1',
   `nome` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -270,7 +269,7 @@ CREATE TABLE `usuarios` (
   `imagemTipo` varchar(11) NOT NULL,
   `idturma` int(11) NOT NULL,
   `idgrupo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `usuarios`
@@ -299,7 +298,7 @@ INSERT INTO `usuarios` (`idUsuario`, `nivelAcesso_idnivelAcesso`, `nome`, `email
 -- Estrutura da tabela `usuarioturma`
 --
 
-CREATE TABLE `usuarioturma` (
+CREATE TABLE IF NOT EXISTS `usuarioturma` (
   `usuarios_idUsuario` int(11) DEFAULT NULL,
   `turma_idturma` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -322,7 +321,7 @@ INSERT INTO `usuarioturma` (`usuarios_idUsuario`, `turma_idturma`) VALUES
 --
 DROP TABLE IF EXISTS `perguntas`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `perguntas`  AS  select `forumpergunta`.`idpergunta` AS `idpergunta`,`forumpergunta`.`descricao` AS `descricao`,`forumpergunta`.`data` AS `data`,`usuarios`.`idUsuario` AS `idUsuario`,`usuarios`.`nome` AS `nome` from (`forumpergunta` join `usuarios`) where (`forumpergunta`.`idpergunta` = `usuarios`.`idUsuario`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `perguntas` AS select `forumpergunta`.`idpergunta` AS `idpergunta`,`forumpergunta`.`descricao` AS `descricao`,`forumpergunta`.`data` AS `data`,`usuarios`.`idUsuario` AS `idUsuario`,`usuarios`.`nome` AS `nome` from (`forumpergunta` join `usuarios`) where (`forumpergunta`.`idpergunta` = `usuarios`.`idUsuario`);
 
 -- --------------------------------------------------------
 
@@ -331,7 +330,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `respostas`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `respostas`  AS  select `forumresposta`.`idresposta` AS `idresposta`,`forumresposta`.`resposta` AS `resposta`,`forumresposta`.`idpergunta` AS `idpergunta`,`forumresposta`.`Iduser` AS `Iduser`,`forumresposta`.`data` AS `data`,`usuarios`.`idUsuario` AS `idUsuario`,`usuarios`.`nome` AS `nome` from (`forumresposta` join `usuarios`) where (`usuarios`.`idUsuario` = `forumresposta`.`Iduser`) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `respostas` AS select `forumresposta`.`idresposta` AS `idresposta`,`forumresposta`.`resposta` AS `resposta`,`forumresposta`.`idpergunta` AS `idpergunta`,`forumresposta`.`Iduser` AS `Iduser`,`forumresposta`.`data` AS `data`,`usuarios`.`idUsuario` AS `idUsuario`,`usuarios`.`nome` AS `nome` from (`forumresposta` join `usuarios`) where (`usuarios`.`idUsuario` = `forumresposta`.`Iduser`);
 
 -- --------------------------------------------------------
 
@@ -340,7 +339,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `usuarioinfo`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuarioinfo`  AS  select `usuarios`.`idUsuario` AS `idUsuario`,`usuarios`.`nome` AS `nome`,`usuarios`.`email` AS `email`,`usuarios`.`senha` AS `senha`,`usuarios`.`nivelAcesso_idnivelAcesso` AS `nivelAcesso_idnivelAcesso`,`nivelacesso`.`descNivel` AS `descNivel`,`usuarios`.`idturma` AS `idturma`,`turma`.`nome` AS `turma`,`usuarios`.`idgrupo` AS `idgrupo`,`grupos`.`nome` AS `grupo`,`turma`.`idOrientador` AS `idOrientador`,`orientador`.`nome` AS `orientador` from ((((`usuarios` join `nivelacesso`) join `turma`) join `grupos`) join `usuarios` `orientador`) where ((`nivelacesso`.`idnivelAcesso` = `usuarios`.`nivelAcesso_idnivelAcesso`) and (`usuarios`.`idturma` = `turma`.`id`) and (`usuarios`.`idgrupo` = `grupos`.`idGrupo`) and (`turma`.`idOrientador` = `orientador`.`idUsuario`)) order by `usuarios`.`idgrupo` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `usuarioinfo` AS select `usuarios`.`idUsuario` AS `idUsuario`,`usuarios`.`nome` AS `nome`,`usuarios`.`email` AS `email`,`usuarios`.`senha` AS `senha`,`usuarios`.`nivelAcesso_idnivelAcesso` AS `nivelAcesso_idnivelAcesso`,`nivelacesso`.`descNivel` AS `descNivel`,`usuarios`.`idturma` AS `idturma`,`turma`.`nome` AS `turma`,`usuarios`.`idgrupo` AS `idgrupo`,`grupos`.`nome` AS `grupo`,`turma`.`idOrientador` AS `idOrientador`,`orientador`.`nome` AS `orientador` from ((((`usuarios` join `nivelacesso`) join `turma`) join `grupos`) join `usuarios` `orientador`) where ((`nivelacesso`.`idnivelAcesso` = `usuarios`.`nivelAcesso_idnivelAcesso`) and (`usuarios`.`idturma` = `turma`.`id`) and (`usuarios`.`idgrupo` = `grupos`.`idGrupo`) and (`turma`.`idOrientador` = `orientador`.`idUsuario`)) order by `usuarios`.`idgrupo`;
 
 --
 -- Indexes for dumped tables
@@ -350,54 +349,49 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- Indexes for table `calendario`
 --
 ALTER TABLE `calendario`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
+ ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
 
 --
 -- Indexes for table `forumpergunta`
 --
 ALTER TABLE `forumpergunta`
-  ADD PRIMARY KEY (`idpergunta`);
+ ADD PRIMARY KEY (`idpergunta`);
 
 --
 -- Indexes for table `forumresposta`
 --
 ALTER TABLE `forumresposta`
-  ADD PRIMARY KEY (`idresposta`);
+ ADD PRIMARY KEY (`idresposta`);
 
 --
 -- Indexes for table `grupos`
 --
 ALTER TABLE `grupos`
-  ADD PRIMARY KEY (`idGrupo`),
-  ADD UNIQUE KEY `idGrupo` (`idGrupo`);
+ ADD PRIMARY KEY (`idGrupo`), ADD UNIQUE KEY `idGrupo` (`idGrupo`);
 
 --
 -- Indexes for table `nivelacesso`
 --
 ALTER TABLE `nivelacesso`
-  ADD PRIMARY KEY (`idnivelAcesso`),
-  ADD UNIQUE KEY `idnivelAcesso` (`idnivelAcesso`);
+ ADD PRIMARY KEY (`idnivelAcesso`), ADD UNIQUE KEY `idnivelAcesso` (`idnivelAcesso`);
 
 --
 -- Indexes for table `nota`
 --
 ALTER TABLE `nota`
-  ADD PRIMARY KEY (`idNota`),
-  ADD UNIQUE KEY `idNota` (`idNota`);
+ ADD PRIMARY KEY (`idNota`), ADD UNIQUE KEY `idNota` (`idNota`);
 
 --
 -- Indexes for table `turma`
 --
 ALTER TABLE `turma`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`idUsuario`),
-  ADD UNIQUE KEY `idUsuario` (`idUsuario`);
+ ADD PRIMARY KEY (`idUsuario`), ADD UNIQUE KEY `idUsuario` (`idUsuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -407,42 +401,42 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `calendario`
 --
 ALTER TABLE `calendario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT for table `forumpergunta`
 --
 ALTER TABLE `forumpergunta`
-  MODIFY `idpergunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+MODIFY `idpergunta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `forumresposta`
 --
 ALTER TABLE `forumresposta`
-  MODIFY `idresposta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+MODIFY `idresposta` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `idGrupo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `idGrupo` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `nivelacesso`
 --
 ALTER TABLE `nivelacesso`
-  MODIFY `idnivelAcesso` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+MODIFY `idnivelAcesso` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `nota`
 --
 ALTER TABLE `nota`
-  MODIFY `idNota` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+MODIFY `idNota` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `turma`
 --
 ALTER TABLE `turma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+MODIFY `idUsuario` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

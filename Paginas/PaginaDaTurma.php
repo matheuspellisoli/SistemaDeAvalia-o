@@ -78,13 +78,23 @@ date_default_timezone_set('America/Sao_Paulo');
                                     $DFinal=mysql_result($consulta,$i,"dataFim");      
                                     $color = mysql_result($consulta,$i,"cor");  
                                     $hora = mysql_result($consulta,$i,"hora"); 
-      
+                                    $tipo = mysql_result($consulta,$i,"tipo");
                     ?>	
                                     
                        <?php echo "{";?>
                            <?php echo "id: $Id,";?>
                                <?php echo "title:'$Titulo',";?>
-                                   <?php echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/tarefa.php?id=$Id&&idTurma=$idTurma',";?>
+                                   
+                                   <?php 
+                    if ($tipo != 0) {
+                                    echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/tarefaVerDetalhes.php?id=$Id&&idTurma=$idTurma',";
+                                }  else {
+                                    echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/tarefa.php?id=$Id&&idTurma=$idTurma',";
+                                    
+                                }                                 
+                                   
+                                   ?>
+                                       
                                        <?php echo "start:'$DInicio"."T$hora:00' ,";?>
                                           <?php echo "end:'$DFinal"."T$hora:00' ,";?> 
                                              <?php echo "color: '$color'";?>   
