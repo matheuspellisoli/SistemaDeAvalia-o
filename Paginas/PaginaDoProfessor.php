@@ -123,7 +123,7 @@ and open the template in the editor.
     <div class="panel panel-default">
         <div class="panel-heading col-lg-12">
              <div class="col-lg-5"  style="margin:5%" >          
-                 <img  class="img-responsive  col-lg-10 img-circle" src="Listar.php?codigo=<?php echo"$IdTurma";?>"/>
+                 <img  class="img-responsive  col-lg-10 img-circle" src="imgTurma.php?codigo=<?php echo"$IdTurma";?>"/>
       </div>            
             <div class="col-lg-4" style="margin-top: 15%;">          
            <h4><?php echo "$nomeTurma";?></h4>

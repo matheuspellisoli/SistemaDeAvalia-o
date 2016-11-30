@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Nov-2016 às 20:53
+-- Generation Time: 30-Nov-2016 às 18:22
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -89,14 +89,14 @@ CREATE TABLE `forumpergunta` (
   `descricao` varchar(10000) NOT NULL,
   `idturma` int(11) NOT NULL,
   `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Idusuer` int(11) NOT NULL
+  `Iduser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `forumpergunta`
 --
 
-INSERT INTO `forumpergunta` (`idpergunta`, `descricao`, `idturma`, `data`, `Idusuer`) VALUES
+INSERT INTO `forumpergunta` (`idpergunta`, `descricao`, `idturma`, `data`, `Iduser`) VALUES
 (1, 'Como esta o projeto de vocês ', 0, '2016-11-28 14:18:36', 2),
 (2, 'teste', 0, '2016-11-28 16:16:36', 2),
 (3, 'teste1', 0, '2016-11-29 19:44:29', 2),
@@ -112,7 +112,7 @@ CREATE TABLE `forumresposta` (
   `idresposta` int(11) NOT NULL,
   `idpergunta` int(11) NOT NULL,
   `resposta` varchar(1000) NOT NULL,
-  `Idusuer` int(11) NOT NULL,
+  `Iduser` int(11) NOT NULL,
   `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -120,7 +120,7 @@ CREATE TABLE `forumresposta` (
 -- Extraindo dados da tabela `forumresposta`
 --
 
-INSERT INTO `forumresposta` (`idresposta`, `idpergunta`, `resposta`, `Idusuer`, `data`) VALUES
+INSERT INTO `forumresposta` (`idresposta`, `idpergunta`, `resposta`, `Iduser`, `data`) VALUES
 (1, 2, '1', 7, '2016-11-29 14:27:52'),
 (2, 1, '2', 2, '2016-11-29 14:27:52'),
 (3, 2, '3', 1, '2016-11-29 14:27:52'),
@@ -202,6 +202,34 @@ INSERT INTO `nota` (`idNota`, `idAvaliacao`, `idUsuario`, `nota`) VALUES
 (6, 2, 4, 6),
 (7, 1, 5, 3),
 (8, 2, 5, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `perguntas`
+--
+CREATE TABLE `perguntas` (
+`idpergunta` int(11)
+,`descricao` varchar(10000)
+,`data` timestamp
+,`idUsuario` bigint(20) unsigned
+,`nome` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `respostas`
+--
+CREATE TABLE `respostas` (
+`idresposta` int(11)
+,`resposta` varchar(1000)
+,`idpergunta` int(11)
+,`Iduser` int(11)
+,`data` timestamp
+,`idUsuario` bigint(20) unsigned
+,`nome` varchar(50)
+);
 
 -- --------------------------------------------------------
 
@@ -305,6 +333,24 @@ INSERT INTO `usuarioturma` (`usuarios_idUsuario`, `turma_idturma`) VALUES
 (4, 11),
 (5, 11),
 (7, 13);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `perguntas`
+--
+DROP TABLE IF EXISTS `perguntas`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `perguntas`  AS  select `forumpergunta`.`idpergunta` AS `idpergunta`,`forumpergunta`.`descricao` AS `descricao`,`forumpergunta`.`data` AS `data`,`usuarios`.`idUsuario` AS `idUsuario`,`usuarios`.`nome` AS `nome` from (`forumpergunta` join `usuarios`) where (`forumpergunta`.`idpergunta` = `usuarios`.`idUsuario`) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `respostas`
+--
+DROP TABLE IF EXISTS `respostas`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `respostas`  AS  select `forumresposta`.`idresposta` AS `idresposta`,`forumresposta`.`resposta` AS `resposta`,`forumresposta`.`idpergunta` AS `idpergunta`,`forumresposta`.`Iduser` AS `Iduser`,`forumresposta`.`data` AS `data`,`usuarios`.`idUsuario` AS `idUsuario`,`usuarios`.`nome` AS `nome` from (`forumresposta` join `usuarios`) where (`usuarios`.`idUsuario` = `forumresposta`.`Iduser`) ;
 
 -- --------------------------------------------------------
 

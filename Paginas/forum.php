@@ -76,7 +76,7 @@ and open the template in the editor.
         </div>
     <div class="col-lg-12">  
     <?php    
-    $consulta = mysql_query("SELECT * FROM `forumpergunta`  ORDER BY `forumpergunta`.`data` DESC ");
+    $consulta = mysql_query("SELECT * FROM `perguntas`  ORDER BY `data` DESC ");
                     $linhas = mysql_num_rows($consulta);
                 //quantidade de conteudo exibido por pagina		
                 
@@ -96,7 +96,7 @@ and open the template in the editor.
 			for($i=$aPartirDeQual; $i< $terminaEm; $i++){	
                             $pergunta = mysql_result($consulta,$i,"descricao");
                             $idpergunta = mysql_result($consulta,$i,"idpergunta");
-                            
+                            $nomeUser = mysql_result($consulta,$i,"nome");
     ?>
     <div class="col-lg-12">   
         <div class="col-lg-2"></div> 
@@ -107,7 +107,7 @@ and open the template in the editor.
         <img src="../user.jpg" class="media-object" style="width:60px;margin-top:5%">
     </div>
     <div class="media-body">
-      <h4 class="media-heading" style="margin-top:5%">Tiago marcos alves</h4>
+      <h4 class="media-heading" style="margin-top:5%"><?php echo "$nomeUser";  ?></h4>
       <p><?php echo "$pergunta";  ?></p>
     </div>
       <form action="../Paginas/ResposderForum.php" style="margin:1%" method="post">
@@ -120,18 +120,21 @@ and open the template in the editor.
   <hr>
   
   <?php
-   $sql_user = mysql_query("SELECT * FROM `forumresposta` WHERE `idpergunta` = $idpergunta  ORDER BY `forumresposta`.`data` DESC ");
+   $sql_user = mysql_query("SELECT * FROM `respostas` WHERE `idpergunta` = $idpergunta ORDER BY `respostas`.`data` DESC");
+   
         while ($resp = mysql_fetch_object($sql_user)) {
             $resposta = $resp->resposta;
+            $nomeUserResposta = $resp->nome;
+            $idUserResposta = $resp->idUsuario;
             ?>
   <!-- Right-aligned media object -->
   <div class="media">
     <div class="media-body">
-      <h4 class="media-heading">Right-aligned</h4>
+      <h4 class="media-heading"><?php echo "$nomeUserResposta";  ?> </h4>
     <?php echo "$resposta";  ?> 
     </div>
     <div class="media-right">
-        <img src="../user.jpg" class="media-object" style="width:60px">
+        <img src="imgTurma.php?codigo=<?php echo"$idUserResposta";?>" class="media-object" style="width:60px">
     </div>
   </div>
   <hr>
