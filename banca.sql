@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Nov-2016 às 18:22
+-- Generation Time: 30-Nov-2016 às 20:55
 -- Versão do servidor: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -23,26 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `avaliacao`
---
-
-CREATE TABLE `avaliacao` (
-  `idAvaliacoa` bigint(20) UNSIGNED NOT NULL,
-  `descAvaliacao` varchar(300) DEFAULT NULL,
-  `titulo` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `avaliacao`
---
-
-INSERT INTO `avaliacao` (`idAvaliacoa`, `descAvaliacao`, `titulo`) VALUES
-(1, 'Prova de servidores', 'AV1'),
-(2, 'Prova de redes', 'AV2');
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `calendario`
 --
 
@@ -57,26 +37,27 @@ CREATE TABLE `calendario` (
   `status` int(11) NOT NULL DEFAULT '0',
   `turma` int(11) NOT NULL DEFAULT '0',
   `grupo` int(11) NOT NULL DEFAULT '0',
-  `hora` varchar(100) NOT NULL DEFAULT '00:00'
+  `hora` varchar(100) NOT NULL DEFAULT '00:00',
+  `idNota` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `calendario`
 --
 
-INSERT INTO `calendario` (`id`, `titulo`, `descricao`, `dataInicio`, `dataFim`, `cor`, `tipo`, `status`, `turma`, `grupo`, `hora`) VALUES
-(47, 'data disponivel', 'crie uma tareja nesta data', '2016-12-05', '2016-12-05', '#257E4A', 0, 0, 20, 0, '19:50'),
-(48, 'data disponivel', 'crie uma tareja nesta data', '2016-12-05', '2016-12-05', '#257E4A', 0, 0, 20, 0, '20:40'),
-(49, 'data disponivel', 'crie uma tareja nesta data', '2016-12-05', '2016-12-05', '#257E4A', 0, 0, 20, 0, '21:30'),
-(50, 'data disponivel', 'crie uma tareja nesta data', '2016-12-12', '2016-12-12', '#257E4A', 0, 0, 20, 0, '19:50'),
-(51, 'data disponivel', 'crie uma tareja nesta data', '2016-12-12', '2016-12-12', '#257E4A', 0, 0, 20, 0, '20:40'),
-(52, 'data disponivel', 'crie uma tareja nesta data', '2016-12-12', '2016-12-12', '#257E4A', 0, 0, 20, 0, '21:30'),
-(53, 'data disponivel', 'crie uma tareja nesta data', '2016-12-06', '2016-12-06', '#257E4A', 0, 0, 20, 0, '19:50'),
-(54, 'data disponivel', 'crie uma tareja nesta data', '2016-12-06', '2016-12-06', '#257E4A', 0, 0, 20, 0, '20:40'),
-(55, 'data disponivel', 'crie uma tareja nesta data', '2016-12-06', '2016-12-06', '#257E4A', 0, 0, 20, 0, '21:30'),
-(56, 'data disponivel', 'crie uma tareja nesta data', '2016-12-13', '2016-12-13', '#257E4A', 0, 0, 20, 0, '19:50'),
-(57, 'data disponivel', 'crie uma tareja nesta data', '2016-12-13', '2016-12-13', '#257E4A', 0, 0, 20, 0, '20:40'),
-(58, 'data disponivel', 'crie uma tareja nesta data', '2016-12-13', '2016-12-13', '#257E4A', 0, 0, 20, 0, '21:30');
+INSERT INTO `calendario` (`id`, `titulo`, `descricao`, `dataInicio`, `dataFim`, `cor`, `tipo`, `status`, `turma`, `grupo`, `hora`, `idNota`) VALUES
+(47, 'testesddb', '<p>valkdbhnuixgnuiihg uiosefdhyuigxcfbvc yuxcvznbxczyugxzcjbzxcytzxcbvxcb &nbsp;zxcyjygxczhj fxcsdfdgf</p>\r\n', '2016-12-05', '2016-12-05', '#FF0000', 2, 0, 20, 0, '19:50', 0),
+(48, 'data disponivel', 'crie uma tareja nesta data', '2016-12-05', '2016-12-05', '#257E4A', 0, 0, 20, 0, '20:40', 0),
+(49, 'data disponivel', 'crie uma tareja nesta data', '2016-12-05', '2016-12-05', '#257E4A', 0, 0, 20, 0, '21:30', 0),
+(50, 'data disponivel', 'crie uma tareja nesta data', '2016-12-12', '2016-12-12', '#257E4A', 0, 0, 20, 0, '19:50', 0),
+(51, 'data disponivel', 'crie uma tareja nesta data', '2016-12-12', '2016-12-12', '#257E4A', 0, 0, 20, 0, '20:40', 0),
+(52, 'data disponivel', 'crie uma tareja nesta data', '2016-12-12', '2016-12-12', '#257E4A', 0, 0, 20, 0, '21:30', 0),
+(53, 'data disponivel', 'crie uma tareja nesta data', '2016-12-06', '2016-12-06', '#257E4A', 0, 0, 20, 0, '19:50', 0),
+(54, 'data disponivel', 'crie uma tareja nesta data', '2016-12-06', '2016-12-06', '#257E4A', 0, 0, 20, 0, '20:40', 0),
+(55, 'data disponivel', 'crie uma tareja nesta data', '2016-12-06', '2016-12-06', '#257E4A', 0, 0, 20, 0, '21:30', 0),
+(56, 'data disponivel', 'crie uma tareja nesta data', '2016-12-13', '2016-12-13', '#257E4A', 0, 0, 20, 0, '19:50', 0),
+(57, 'data disponivel', 'crie uma tareja nesta data', '2016-12-13', '2016-12-13', '#257E4A', 0, 0, 20, 0, '20:40', 0),
+(58, 'data disponivel', 'crie uma tareja nesta data', '2016-12-13', '2016-12-13', '#257E4A', 0, 0, 20, 0, '21:30', 0);
 
 -- --------------------------------------------------------
 
@@ -154,8 +135,8 @@ CREATE TABLE `grupos` (
 
 INSERT INTO `grupos` (`idGrupo`, `idTurma`, `nome`, `numeroIntegrantes`) VALUES
 (0, 0, 'Sem grupo', 2147483647),
-(1, 10, 'GPO_A', 2),
-(2, 11, 'GPO_B', 2);
+(1, 20, 'GPO_A', 2),
+(2, 20, 'GPO_B', 2);
 
 -- --------------------------------------------------------
 
@@ -366,13 +347,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
--- Indexes for table `avaliacao`
---
-ALTER TABLE `avaliacao`
-  ADD PRIMARY KEY (`idAvaliacoa`),
-  ADD UNIQUE KEY `idAvaliacoa` (`idAvaliacoa`);
-
---
 -- Indexes for table `calendario`
 --
 ALTER TABLE `calendario`
@@ -429,11 +403,6 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `avaliacao`
---
-ALTER TABLE `avaliacao`
-  MODIFY `idAvaliacoa` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `calendario`
 --
