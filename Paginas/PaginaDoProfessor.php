@@ -96,7 +96,7 @@ and open the template in the editor.
      <!--fim do bloco de turmas-->
     <?php
     }
-    $consulta = mysql_query("SELECT * FROM `turma`");
+    $consulta = mysql_query("SELECT * FROM `turma` where idOrientador = 2 ");
                     $linhas = mysql_num_rows($consulta);
                 //quantidade de conteudo exibido por pagina		
                 

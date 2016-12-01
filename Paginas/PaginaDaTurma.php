@@ -282,7 +282,7 @@ date_default_timezone_set('America/Sao_Paulo');
       </button>
       <button class="col-lg-4  panel panel-default" style="padding:1%" id="btnGrafico">
           <div class="glyphicon glyphicon-list-alt col-lg-2" style="font-size: 200%"></div>
-          <div class=" col-lg-9" style="font-size: 150%">Gerengiar grupos</div>
+          <div class=" col-lg-9" style="font-size: 150%">Adicionar grupos</div>
       </button>
                     <div class="col-lg-2 "></div>           
                    </div>
@@ -298,7 +298,7 @@ date_default_timezone_set('America/Sao_Paulo');
     </thead>
     <tbody>
         <?php
-        $sql_user = mysql_query("SELECT * FROM `usuarioinfo` WHERE  idturma = $idTurma");
+        $sql_user = mysql_query("SELECT * FROM `usuarioinfo` WHERE  idturma = $idTurma and nivelAcesso_idnivelAcesso = 1   ORDER BY `nome` ASC");
         while ($User = mysql_fetch_object($sql_user)) {
             $UserId = $User->idUsuario;
             $UserNome = $User->nome;
