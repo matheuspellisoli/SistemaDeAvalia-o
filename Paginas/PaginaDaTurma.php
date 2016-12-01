@@ -321,9 +321,28 @@ date_default_timezone_set('America/Sao_Paulo');
               <div id='calendar' style="margin-top: 2%"></div>
               <!---------------------------------------->
               <div id='grafico' style="margin-top: 2%">
-                  <div id="continer" class="col-lg-6">
-                      <iframe  style="width:100%;min-height:500px;height:70%" src="http://localhost/SistemaDeAvalia-o/GraficoTeste/index.php?id=1"></iframe>
+                  <div id="continer" class="col-lg-8">
+                      <img  style="width:100%;min-height:500px;height:70%" src="http://localhost/SistemaDeAvalia-o/GraficoTeste/index.php?id=1">
+                  </div>
+                      <div class="col-lg-4" style="margin:auto 0;height:100%;overflow:auto;">
+                      <script>
+                      function setGrupBtn(){
                       
+                        }
+                      </script>
+                      <?php 
+                   $SqlgrupoUser = mysql_query("SELECT `idGrupo`,`nome` FROM `grupos` WHERE `idTurma`='$idTurma'");
+                    while ($grupoUser = mysql_fetch_array($SqlgrupoUser)) {
+                        $NOMEGrup=$grupoUser['nome'];
+                        $idGrupo=$grupoUser['idGrupo'];
+                      ?>
+                      <button onclick="setGrupBtn(<?PHPecho $idGrupo;?>)" disabled="" class="btn btn-default" style="width:100%;"><?PHPecho "$NOMEGrup";?></button>
+                      <select id="setGraf" class="form-control" style="width:95%;height:100%;margin:0 auto" multiple="">
+                      </select>
+                      <?php 
+                        }
+                      ?>    
+                  </div>
                   </div>
                </div>
               <!---------------------------------------->
