@@ -132,19 +132,22 @@ and open the template in the editor.
          <td>
              <?php 
              if ($nota == 0 ) { 
+                 if ($tipo == 2) { 
              ?>
-             <select name="nota[]" class="form-control">
-                 <?php 
-                 if ($tipo == 2) {  
+              
+                     <select name="nota[]" class="form-control">
+            <?php 
                     for ($notai = 0; $notai < 11; $notai++) {
                      echo "<option value='$notai'>$notai</option>";
                     }
-                 } else {
-                     echo "<option value='10'>0</option>";
-                 }
-                  ?>
+                    
+                      ?>
             </select>
                  <?php
+                 } else {
+                       echo "Tarefa não vale pontos";
+                 }
+                
                  } else {
                         $sql8 = mysql_query("SELECT * FROM `nota` WHERE idAvaliacao = $id and idUsuario = $UserId");
                     while ($notasql = mysql_fetch_object($sql8)) {                        
@@ -168,10 +171,12 @@ and open the template in the editor.
       <input type="hidden" name="idgrupo" value="<?php echo $grupo; ?>"/>
       <?php 
       if ($nota == 0 ) {
+           if ($tipo == 2 ) {
           ?>
       
       <button  accept="" type="submit" class="btn btn-default col-lg-12" >Avaliar</button>
       <?php 
+      }
       }
           ?>
        </form>

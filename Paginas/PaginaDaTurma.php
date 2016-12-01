@@ -331,16 +331,13 @@ date_default_timezone_set('America/Sao_Paulo');
                         }
                       </script>
                       <?php 
-                   $SqlgrupoUser = mysql_query("SELECT `idGrupo`,`nome` FROM `grupos` WHERE `idTurma`='$idTurma'");
-                    while ($grupoUser = mysql_fetch_array($SqlgrupoUser)) {
-                        $NOMEGrup=$grupoUser['nome'];
-                        $idGrupo=$grupoUser['idGrupo'];
+             
                       ?>
-                      <button onclick="setGrupBtn(<?PHPecho $idGrupo;?>)" disabled="" class="btn btn-default" style="width:100%;"><?PHPecho "$NOMEGrup";?></button>
+                      <button  disabled="" class="btn btn-default" style="width:100%;">zfbgg</button>
                       <select id="setGraf" class="form-control" style="width:95%;height:100%;margin:0 auto" multiple="">
                       </select>
                       <?php 
-                        }
+                        
                       ?>    
                   </div>
                   </div>
