@@ -207,8 +207,7 @@ date_default_timezone_set('America/Sao_Paulo');
             $('#editarTurma').hide();
             $('#forum').slideToggle('slwo',null);
         };
-        
-      
+
         
         });
 </script>
@@ -275,12 +274,12 @@ date_default_timezone_set('America/Sao_Paulo');
                <div id='Aluno' style="margin-top: 2%">
                    
                    <div class="col-lg-12">
-               <div class="col-lg-2 "></div>            
-        <button class="col-lg-4  panel panel-default" style="padding:1%" id="btnCalendario" data-toggle="modal" data-target="#CadastrarUsuario" >
+                       
+        <button class="col-lg-3  panel panel-default" style="padding:1%" id="btnaddaluno" data-toggle="modal" data-target="#CadastrarUsuario" >
           <div class="glyphicon glyphicon-plus col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Adicionar aluno</div>
-      </button>
-      <button class="col-lg-4  panel panel-default" style="padding:1%" id="btnGrafico">
+      </button>               
+      <button class="col-lg-3 panel panel-default" style="padding:1%" id="btnaddgrupo" data-toggle="modal" data-target="#CadastrarGrupo">
           <div class="glyphicon glyphicon-list-alt col-lg-2" style="font-size: 200%"></div>
           <div class=" col-lg-9" style="font-size: 150%">Adicionar grupos</div>
       </button>
@@ -299,18 +298,53 @@ date_default_timezone_set('America/Sao_Paulo');
     <tbody>
         <?php
         $sql_user = mysql_query("SELECT * FROM `usuarioinfo` WHERE  idturma = $idTurma and nivelAcesso_idnivelAcesso = 1   ORDER BY `nome` ASC");
+        
         while ($User = mysql_fetch_object($sql_user)) {
             $UserId = $User->idUsuario;
             $UserNome = $User->nome;
             $Useremail= $User->email;
             $Usergrup= $User->grupo;
+            $idusergrupo = $User->idgrupo;
         
 ?>    
       <tr>
           <td><?php echo $UserId;?></td>
         <td><?php echo $UserNome;?></td>
-        <td><?php echo $Useremail;?></td>
-         <td><?php echo $Usergrup;?></td>        
+        <td><?php echo $Useremail;?></td>       
+       
+         <td><?php 
+        if ($idusergrupo != 0) {
+          echo $Usergrup;
+          }  else {
+                 ?>   
+             <form method="Post" enctype="multipart/form-data" action="../funcao/FuncSelecionarGrupo.php"> 
+        <input type="hidden" name="idTurma" value="<?php echo $idTurma;?>" >     
+        <input type="hidden" name="UserId" value="<?php echo $UserId;?>" >   
+        
+        <div class="col-lg-12">           
+            <div class="col-lg-6">         
+            <select name="grupo"  class="form-control">
+                <?php
+                        $sql5 = mysql_query("SELECT * FROM `grupos` where idTurma = $idTurma ");
+                    while ($estado = mysql_fetch_object($sql5)) {
+                        $estado_id = $estado->idGrupo;
+                        $estado_desc = $estado->nome;
+                        echo "<option value='$estado_id'>$estado_desc</option> ";
+                    }
+                    ?>
+            </select>
+             </div>
+              <div class="col-lg-6">
+         <input type="submit" class="btn btn-default  col-lg-12"  value="Selecinar grupo">
+             </div>
+        </div>
+       </form>
+          <?php                     
+          }
+          ?> 
+        
+         
+       </td>         
       </tr>
       <?php }?>
     </tbody>
@@ -453,12 +487,93 @@ date_default_timezone_set('America/Sao_Paulo');
       <div class="modal-footer">
         
       </div>
-    </div>
-    
-    
-
+    </div>  
   </div>
 </div>
 
+ <!-- Modal -->
+<div id="CadastrarGrupo" class="modal fade" role="dialog" style="margin-top: 15%">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cadastrar Grupo</h4>
+      </div>
+      <div class="modal-body" class=" col-lg-12">
+          <div>
+            <div class=" col-lg-12">
+            <div class="form-group">
+                <form method="Post" enctype="multipart/form-data" action="../funcao/FuncCadastrarGrupo.php">
+            <div class="col-lg-12">
+                <br>
+            <label for="titulo">Nome</label>
+        <input type="text"  name="nome" class="form-control" id="email" style="margin-top: 8px ">
+            </div>    
+        <input type="hidden" name="idUserOrientador" value="1" > 
+        <input type="hidden" name="idTurma" value="<?php echo $idTurma;?>" > 
+         
+         <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%" value="Cadastrar Grupo" style="margin-top: 8px">
+       </form>
+     </div>
+           </div> 
+          </div>
+                    
+          
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+    </div>
+</div>
+ 
+ 
+ <!-- Modal -->
+<div id="AddUserGrupo" class="modal fade" role="dialog" style="margin-top: 15%">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">SelecionarGrupo</h4>
+      </div>
+      <div class="modal-body" class=" col-lg-12">
+          <div>
+            <div class=" col-lg-12">
+            <div class="form-group">
+                <form method="Post" enctype="multipart/form-data" action="../funcao/FuncCadastrarGrupo.php">
+            <div class="col-lg-12">
+                <br>
+            <label for="titulo">Grupo</label>
+        <select name="grupo"  class="form-control">
+                <?php
+                        $sql5 = mysql_query("SELECT * FROM `grupos` where idTurma = $idTurma ");
+                    while ($estado = mysql_fetch_object($sql5)) {
+                        $estado_id = $estado->idGrupo;
+                        $estado_desc = $estado->nome;
+                        echo "<option value='$estado_id'>$estado_desc</option> ";
+                    }
+                    ?>
+            </select>
+            </div>
+        <input type="hidden" name="idTurma" value="<?php echo $idTurma;?>" > 
+        <input type="hidden" name="idUserM" id="idUser" valeu=""> 
+         <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%" value="Selecionar Grupo" style="margin-top: 8px">
+       </form>
+     </div>
+           </div> 
+          </div>
+                    
+          
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+    </div>
+</div>
 </body>
 </html>
