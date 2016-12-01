@@ -164,6 +164,7 @@ for ($i = 0; $i < $linhas; $i++) {
                     $('#btnGrafico').on('click', toggleGrafico);
                     $('#btnEditarTutma').on('click', toggleEditarTurma);
                     $('#btnForunTutma').on('click', toggleForumTurma);
+                      $('#setGraf').on('change',setGrafImg);  
                     //------------------------------------------------------
                             function toggleAluno(){
                             $('#calendar').hide();
@@ -200,6 +201,11 @@ for ($i = 0; $i < $linhas; $i++) {
                                     $('#editarTurma').hide();
                                     $('#forum').slideToggle('slwo', null);
                             };
+                            function setGrafImg(){
+                            var id=$('#setGraf').val();
+                            $('#imgGrafico').attr('src','http://localhost/SistemaDeAvalia-o/GraficoTeste/index.php?id='+id);
+      };
+        
                     });</script>
 
         <style>
@@ -344,23 +350,40 @@ while ($User = mysql_fetch_object($sql_user)) {
                     <div id='calendar' style="margin-top: 2%"></div>
                     <!---------------------------------------->
                     <div id='grafico' style="margin-top: 2%">
-                        <div id="continer" class="col-lg-8">
-                            <img  style="width:100%;min-height:500px;height:70%" src="http://localhost/SistemaDeAvalia-o/GraficoTeste/index.php?id=1">
-                        </div>
-                        <div class="col-lg-4" style="margin:auto 0;height:100%;overflow:auto;">
-                            <script>
-                                        function setGrupBtn(){
-
-                                        }
-                            </script>
-<?php ?>
-                            <button  disabled="" class="btn btn-default" style="width:100%;">zfbgg</button>
-                            <select id="setGraf" class="form-control" style="width:95%;height:100%;margin:0 auto" multiple="">
-                            </select>
-                            <?php
-                            ?>    
-                        </div>
-                    </div>
+                  <div id="continer" class="col-lg-8">
+                      <img id="imgGrafico" style="width:100%;min-height:500px;height:70%" src="http://localhost/SistemaDeAvalia-o/GraficoTeste/index.php?id=1">
+                  </div>
+                      <div class="col-lg-4" style="margin:auto 0;height:100%;overflow:auto;">
+                      <?php 
+                    $SqlgrupoUser = mysql_query("SELECT `idGrupo`,`nome` FROM `grupos` WHERE `idTurma`='$idTurma'");
+                    $p=0;
+                    while ($grupoUser = mysql_fetch_object($SqlgrupoUser)) {
+                        $NOMEGrup=$grupoUser->nome;
+                        $idGrupo=$grupoUser->idGrupo;
+                      ?>
+                      <button class="btn btn-default" style="width:100%;margin-top:10px"><?php echo "$NOMEGrup";?></button>
+                      <select  id="setGraf" class="form-control" style="width:95%;height:100%;margin:0 auto" multiple="">
+                  <?php 
+                          $SqlUsuarioGrupo = mysql_query("SELECT `idUsuario`,`nome` FROM `usuarios` WHERE `idgrupo` ='$idGrupo'");
+                    while ($Usergrop = mysql_fetch_object($SqlUsuarioGrupo)){  
+                        $idUser=$Usergrop->idUsuario;
+                        $nomeUserG=$Usergrop->nome;
+                        echo" <option value='$idUser'>$nomeUserG</option>";
+                         }
+                         ?>
+                      </select>
+                      <?php 
+                      $p++;
+                        }
+                      ?>    
+                  </div>
+                  <script type="text/javascript">
+                      $(document).ready(function() {  
+                      
+  });
+                  </script>
+                  </div>
+                    
                 </div>
                 <!---------------------------------------->
                 <div id='editarTurma' style="margin-top: 2%">
