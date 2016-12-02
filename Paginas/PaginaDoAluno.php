@@ -1,9 +1,4 @@
-    <!DOCTYPE html>
-    <!--
-    To change this license header, choose License Headers in Project Properties.
-    To change this template file, choose Tools | Templates
-    and open the template in the editor.
-    -->
+
     <html>
             <head>
             <meta charset="UTF-8">
@@ -23,7 +18,63 @@
       <script src='../fullcalendar-3.0.1/lib/jquery.min.js'></script>
       <script src='../fullcalendar-3.0.1/fullcalendar.min.js'></script>
         <script src='../ckeditor/ckeditor.js'></script>
+<?php
+        $idSUser = 12;
+        include '../funcao/conecta.php';
+      ?>
+        
+<script>
 
+	$(document).ready(function() {
+         var initialLocaleCode = 'es';
+        $('#calendar').fullCalendar({
+			header: {
+				left: 'title ,prev,next ',
+				center: 'today',
+				right: ''
+			},                        
+			defaultDate: '<?php echo date("Y-m-d");?>',
+			editable: false,
+			eventLimit: false, // allow "more" link when too many events
+                        locale:initialLocaleCode,
+			events: [
+<?php 
+  $sql_user = mysql_query("SELECT * FROM `usuarioinfo` WHERE  idUsuario = $idSUser  ORDER BY `nome` ASC");
+        while ($User = mysql_fetch_object($sql_user)) {
+            $UserId = $User->idUsuario;
+            $UserNome = $User->nome;
+            $Useremail= $User->email;
+            $Usergrup= $User->idgrupo;
+        }
+
+$eventos;
+$consulta = mysql_query("SELECT * FROM `calendario` WHERE `grupo` = $Usergrup ");
+$linhas = mysql_num_rows($consulta);
+for ($i = 0; $i < $linhas; $i++) {
+    $Id = mysql_result($consulta, $i, "id");
+    $Titulo = mysql_result($consulta, $i, "titulo");
+
+    $DInicio = mysql_result($consulta, $i, "dataInicio");
+    $DFinal = mysql_result($consulta, $i, "dataFim");
+    $color = mysql_result($consulta, $i, "cor");
+    $hora = mysql_result($consulta, $i, "hora");
+    $horaf = mysql_result($consulta, $i, "horaf");
+    $tipo = mysql_result($consulta, $i, "tipo");
+    ?>
+    <?php echo "{"; ?>
+    <?php echo "id: $Id,"; ?>
+    <?php echo "title:'$Titulo',"; ?>
+    <?php echo "start:'$DInicio" . "T$hora:00' ,"; ?>
+    <?php echo "end:'$DFinal" . "T$horaf:00' ,"; ?>
+    <?php echo "color: '$color'"; ?>
+    <?php echo "}"; ?>
+    <?php echo ","; ?>
+<?php } ?> 
+   ]
+		});
+	});
+
+</script>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -45,18 +96,29 @@
            <div class="col-lg-12"></div>        
             <div class="col-lg-5"></div>   
             <div class="col-lg-2">
-                <img src="../user.jpg" class="img-thumbnail" style="max-width: 100%"/>
+                <img src="../Paginas/imgTurma.php?codigo=<?php echo $UserId; ?>" class="img-thumbnail" style="max-width: 100%"/>
             </div>   
             <div class="col-lg-5"></div>   
         </div>
             <div class="col-lg-12"></div>        
             <div class="col-lg-5"></div>   
             <div class="col-lg-2" style="text-align:center ; font-size:200%">
-               Usuario
+               <?php echo $UserNome; ?>
             </div>   
-            <div class="col-lg-5"></div>   
-        
-
+            <div class="col-lg-5"></div>            
+            <div class="col-lg-12">
+                <div class="col-lg-12">
+                  <div class="col-lg-2"></div>  
+                     <div class="panel panel-default col-lg-8">
+                <div class="panel-body" style="text-align:center;"><h3>Calendario</h3></div>
+                 
+            </div>
+                </div>   
+                <div class="col-lg-2"></div>
+                <div id='calendar' class="col-lg-8"></div> 
+                <div class="col-lg-2"></div>
+            </div>     
+                
             </body>
     </html>
 

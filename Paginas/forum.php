@@ -97,6 +97,8 @@ and open the template in the editor.
                             $pergunta = mysql_result($consulta,$i,"descricao");
                             $idpergunta = mysql_result($consulta,$i,"idpergunta");
                             $nomeUser = mysql_result($consulta,$i,"nome");
+                            $IdUserp = mysql_result($consulta,$i,"idUsuario");
+                            
     ?>
     <div class="col-lg-12">   
         <div class="col-lg-2"></div> 
@@ -104,7 +106,7 @@ and open the template in the editor.
   <!-- Left-aligned media object -->
   <div class="media">
     <div class="media-left">
-        <img src="../user.jpg" class="media-object" style="width:60px;margin-top:5%">
+        <img src=imgUser.php?codigo=<?php echo"$IdUserp";?>" class="media-object" style="width:60px;margin-top:5%">
     </div>
     <div class="media-body">
       <h4 class="media-heading" style="margin-top:5%"><?php echo "$nomeUser";  ?></h4>
@@ -134,7 +136,7 @@ and open the template in the editor.
     <?php echo "$resposta";  ?> 
     </div>
     <div class="media-right">
-        <img src="imgTurma.php?codigo=<?php echo"$idUserResposta";?>" class="media-object" style="width:60px">
+        <img src="imgUser.php?codigo=<?php echo"$idUserResposta";?>" class="media-object" style="width:60px">
     </div>
   </div>
   <hr>

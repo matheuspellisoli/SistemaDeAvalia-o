@@ -100,7 +100,8 @@ and open the template in the editor.
     <div class="col-lg-8">
                 <div class="panel panel-default">
   <div class="panel-heading">Data e Horarios</div>
-  <div class="panel-body">DATA:  <?php echo $dataI;?> --- <?php echo $dataF;?></div>
+  <div class="panel-body">DATA:  <?php echo $dataI;?></div>
+ <!--<?php echo $dataF;?>-->
   <hr>
   <div class="panel-body">HORA: <?php echo $hora;?> --- <?php echo $horaf;?></div></div>
 </div>
