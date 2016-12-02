@@ -17,8 +17,8 @@ $sql_user = mysql_query("SELECT * FROM `usuarioinfo` WHERE  idturma =
      echo "Tarefa $idtarefa <br>";
      echo "Turma $idTurma <br>";
 for ($i = 0; $i < count($notas); $i++) {
-    $sql = (" INSERT INTO `nota`(`idNota`, `idAvaliacao`, `idUsuario`, `nota`)
-            VALUES ('null','$idtarefa','$idaluno[$i]','$notas[$i]');");
+    $sql = (" INSERT INTO `nota`(`idNota`, `idAvaliacao`, `idUsuario`, `nota`,`turma`)
+            VALUES ('null','$idtarefa','$idaluno[$i]','$notas[$i]','$idTurma');");
     mysql_query("$sql") or die (mysql_error());  
 echo "  ($idtarefa,$idaluno[$i],$notas[$i]) <br>";
 }

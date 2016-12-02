@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php $SesaoIdUser = 2; ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -82,7 +83,7 @@ and open the template in the editor.
                
                     
                   
-        <input type="hidden" name="idUserOrientador" value="1" >      
+                    <input type="hidden" name="idUserOrientador" value="<?php echo$SesaoIdUser; ?>" >      
          
         <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%" value="Cadastrar turma">
        </form>

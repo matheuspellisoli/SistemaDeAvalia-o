@@ -17,6 +17,7 @@ and open the template in the editor.
             $descricao = $tarefa->descricao;
             $dataI= $tarefa->dataInicio;
             $dataF= $tarefa->dataFim;
+            $horaf= $tarefa->horaF;
             $hora= $tarefa->hora;
             $tipo= $tarefa->tipo;
             $grupo= $tarefa->grupo;
@@ -62,7 +63,19 @@ and open the template in the editor.
     <div class="col-lg-2"></div>
             <div class="panel panel-default col-lg-8">
                 <div class="panel-body" style="text-align:center;"><h3>Detalhes da tarefa </h3></div>
+                 
             </div>
+    
+    <div class="col-lg-12" >
+    <div class="col-lg-2"></div>
+            <div class=" col-lg-8">
+               <form action="../Paginas/PaginaDaTurma.php?idTurma=<?php echo $idTurma;?>" style="margin:1%" method="post">          
+      <button class="col-lg-12 btn btn-default" type="submit">Voltar para pagina da turma</button>
+      
+  </form> 
+            </div>
+    </div>
+     
            <div class="col-lg-2"></div>
            
             <div class="col-lg-12">
@@ -89,7 +102,7 @@ and open the template in the editor.
   <div class="panel-heading">Data e Horarios</div>
   <div class="panel-body">DATA:  <?php echo $dataI;?> --- <?php echo $dataF;?></div>
   <hr>
-  <div class="panel-body">HORA: <?php echo $hora;?></div>
+  <div class="panel-body">HORA: <?php echo $hora;?> --- <?php echo $horaf;?></div></div>
 </div>
             </div>
    

@@ -76,6 +76,7 @@ for ($i = 0; $i < $linhas; $i++) {
     $DFinal = mysql_result($consulta, $i, "dataFim");
     $color = mysql_result($consulta, $i, "cor");
     $hora = mysql_result($consulta, $i, "hora");
+    $horaf = mysql_result($consulta, $i, "horaf");
     $tipo = mysql_result($consulta, $i, "tipo");
     ?>
 
@@ -92,7 +93,7 @@ for ($i = 0; $i < $linhas; $i++) {
     ?>
 
     <?php echo "start:'$DInicio" . "T$hora:00' ,"; ?>
-    <?php echo "end:'$DFinal" . "T$hora:00' ,"; ?>
+    <?php echo "end:'$DFinal" . "T$horaf:00' ,"; ?>
     <?php echo "color: '$color'"; ?>
     <?php echo "}"; ?>
     <?php echo ","; ?>

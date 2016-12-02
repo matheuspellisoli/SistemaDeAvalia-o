@@ -45,7 +45,7 @@ and open the template in the editor.
       <?php
         header("Content-Type: text/html; charset=ISO-8859-1", true);
         include '../funcao/conecta.php';        
-        
+        $IdUser = 2;
         if ($_GET["pag"]){
                     $pagatual = $_GET["pag"];                    
                 }  else {
@@ -85,7 +85,8 @@ and open the template in the editor.
                             <div class="col-lg-12" style="margin-bottom: 1.5%"><h4>Adicionar uma nova turma</h4></div>              
         </div> 
           <div class="col-lg-12" > 
-              <form action="../Paginas/CadastrarTurma.php" method="get">                                    
+              <form action="../Paginas/CadastrarTurma.php" method="get">    
+                  <input type="hidden" name="idUser" value="<?php echo "$IdUser";?>">
                   <button  accept="" type="submit" class="btn btn-default col-lg-12" >Adionar turma</button>              
               </form>           
         </div> 
