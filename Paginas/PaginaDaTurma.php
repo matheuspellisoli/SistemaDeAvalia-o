@@ -349,6 +349,7 @@ while ($User = mysql_fetch_object($sql_user)) {
                         </table>
 
                     </div>
+                    
                     <!---------------------------------------->
                     <div id='calendar' style="margin-top: 2%"></div>
                     <!---------------------------------------->
