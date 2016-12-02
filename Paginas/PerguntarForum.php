@@ -7,10 +7,17 @@ session_start();
             die(header('Location:../Paginas/index.php?erro=0110'));
                 
         }
-          if ($_SESSION['nivel']!='2'){
+         if ($_SESSION['nivel']!='2' && $_SESSION['nivel']!='1'){
                
             die(header('Location:../Paginas/index.php?erro=1100'));         
         }
+        
+       $nivel = $_SESSION['nivel'];
+        if ($nivel == 1) {
+    $home = '../Paginas/PaginaDoAluno.php';
+}  else {
+    $home = '../Paginas/PaginaDoProfessor.php';
+}
 ?>
 <html>
 <head>
@@ -39,7 +46,7 @@ session_start();
       <a class="navbar-brand" href="">Logo</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class=""><a href="../Paginas/PaginaDoProfessor.php" >Home</a></li>
+      <li class=""><a href="<?php echo "$home";  ?>" >Home</a></li>
       <li><a href="../Paginas/forum.php">forum</a></li>
       <li><a href="#">Page 2</a></li> 
     </ul>
