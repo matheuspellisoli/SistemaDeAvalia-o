@@ -35,7 +35,7 @@
 			},                        
 			defaultDate: '<?php echo date("Y-m-d");?>',
 			editable: false,
-			eventLimit: false, // allow "more" link when too many events
+			eventLimit: true, // allow "more" link when too many events
                         locale:initialLocaleCode,
 			events: [
 <?php 
@@ -45,8 +45,9 @@
             $UserNome = $User->nome;
             $Useremail= $User->email;
             $Usergrup= $User->idgrupo;
+            $UserTurma= $User->idturma;
+            
         }
-
 $eventos;
 $consulta = mysql_query("SELECT * FROM `calendario` WHERE `grupo` = $Usergrup ");
 $linhas = mysql_num_rows($consulta);
@@ -66,7 +67,8 @@ for ($i = 0; $i < $linhas; $i++) {
     <?php echo "title:'$Titulo',"; ?>
     <?php echo "start:'$DInicio" . "T$hora:00' ,"; ?>
     <?php echo "end:'$DFinal" . "T$horaf:00' ,"; ?>
-    <?php echo "color: '$color'"; ?>
+        <?php echo "url:'http://localhost/SistemaDeAvalia-o/Paginas/tarefaVerDetalhesAluno.php?id=$Id&&idTurma=$UserTurma',";?>
+    <?php echo "color: '$color'"; ?>    
     <?php echo "}"; ?>
     <?php echo ","; ?>
 <?php } ?> 
@@ -81,9 +83,9 @@ for ($i = 0; $i < $linhas; $i++) {
           <a class="navbar-brand" href="">Logo</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class=""><a href="../Paginas/PaginaDoProfessor.php" >Home</a></li>
-          <li><a href="../Paginas/forum.php">forum</a></li>
-          <li><a href="#">Page 2</a></li> 
+          <li class=""><a href="../Paginas/PaginaDoAluno.php" >Home</a></li>
+      <li><a href="../Paginas/forumAluno.php">forum</a></li>
+          
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user disabled" style="margin-right:8px;"></span><?php echo "Aluno";?></a></li>
@@ -96,7 +98,7 @@ for ($i = 0; $i < $linhas; $i++) {
            <div class="col-lg-12"></div>        
             <div class="col-lg-5"></div>   
             <div class="col-lg-2">
-                <img src="../Paginas/imgTurma.php?codigo=<?php echo $UserId; ?>" class="img-thumbnail" style="max-width: 100%"/>
+                <img src="http://localhost/SistemaDeAvalia-o/Paginas/imgUser.php?codigo=<?php echo $UserId; ?>" class="img-thumbnail" style="max-width: 100%"/>
             </div>   
             <div class="col-lg-5"></div>   
         </div>
@@ -118,7 +120,7 @@ for ($i = 0; $i < $linhas; $i++) {
                 <div id='calendar' class="col-lg-8"></div> 
                 <div class="col-lg-2"></div>
             </div>     
-                
+            <div class="col-lg-12" style="margin-bottom: 2%;"></div>           
             </body>
     </html>
 
