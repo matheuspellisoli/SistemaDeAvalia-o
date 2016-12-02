@@ -354,7 +354,7 @@ while ($User = mysql_fetch_object($sql_user)) {
                     <!---------------------------------------->
                     <div id='grafico' style="margin-top: 2%">
                   <div id="" class="col-lg-8" align="center">
-                        <img id="imgGrafico" style="width:100%;min-height:70;font-size:50px;" src="http://localhost/SistemaDeAvalia-o/funcao/GraficoUsuario.php?id=1" alt="Não existem notas" >                   </div>
+                       <img id="imgGrafico" style="width:100%;min-height:400px ;font-size:50px;" src="http://localhost/SistemaDeAvalia-o/funcao/GraficoUsuario.php?id=1" alt="Não existem notas" >                   </div>
                       <div class="col-lg-4" style="margin:auto 0;height:100%;overflow:auto;">
                       <?php 
                     $SqlgrupoUser = mysql_query("SELECT `idGrupo`,`nome` FROM `grupos` WHERE `idTurma`='$idTurma'");
