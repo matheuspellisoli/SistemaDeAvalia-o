@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<?Php
+<?php 
+include '../funcao/conecta.php';
+session_start();
+if ($_SESSION['nivel']===2) {
+        if (!isset($_SESSION['Login'])) {
+               
+            die(header('Location:../Paginas/index.php?erro=0110'));
+                
+        }
+}
+
 date_default_timezone_set('America/Sao_Paulo');
 ?>
 <html>
