@@ -1,13 +1,10 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-function AddDias(){
-    var x=document.getElementById("primeiro").staly
-    
-    }
-   
 
-           
+function setGraficoUser(id){
+   $('#imgGrafico').attr('src','http://localhost/SistemaDeAvalia-o/funcao/GraficoUsuario.php?id='+id);
+}
+
+function setGraficoGrupo(id){
+   $('#imgGrafico').attr('src','http://localhost/SistemaDeAvalia-o/funcao/GraficoGrupo.php?id='+id);
+}
+     
 

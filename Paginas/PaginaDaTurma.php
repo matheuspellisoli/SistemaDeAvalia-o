@@ -164,7 +164,6 @@ for ($i = 0; $i < $linhas; $i++) {
                     $('#btnGrafico').on('click', toggleGrafico);
                     $('#btnEditarTutma').on('click', toggleEditarTurma);
                     $('#btnForunTutma').on('click', toggleForumTurma);
-                      $('#setGraf').on('change',setGrafImg);  
                     //------------------------------------------------------
                             function toggleAluno(){
                             $('#calendar').hide();
@@ -201,10 +200,7 @@ for ($i = 0; $i < $linhas; $i++) {
                                     $('#editarTurma').hide();
                                     $('#forum').slideToggle('slwo', null);
                             };
-                            function setGrafImg(){
-                            var id=$('#setGraf').val();
-                            $('#imgGrafico').attr('src','http://localhost/SistemaDeAvalia-o/GraficoTeste/index.php?id='+id);
-      };
+                            
         
                     });</script>
 
@@ -351,7 +347,7 @@ while ($User = mysql_fetch_object($sql_user)) {
                     <!---------------------------------------->
                     <div id='grafico' style="margin-top: 2%">
                   <div id="continer" class="col-lg-8">
-                      <img id="imgGrafico" style="width:100%;min-height:500px;height:70%" src="http://localhost/SistemaDeAvalia-o/GraficoTeste/index.php?id=1">
+                      <img id="imgGrafico" style="width:100%;min-height:500px;height:70%" src="http://localhost/SistemaDeAvalia-o/funcao/GraficoUsuario.php?id=1">
                   </div>
                       <div class="col-lg-4" style="margin:auto 0;height:100%;overflow:auto;">
                       <?php 
@@ -361,27 +357,21 @@ while ($User = mysql_fetch_object($sql_user)) {
                         $NOMEGrup=$grupoUser->nome;
                         $idGrupo=$grupoUser->idGrupo;
                       ?>
-                      <button class="btn btn-default" style="width:100%;margin-top:10px"><?php echo "$NOMEGrup";?></button>
-                      <select  id="setGraf" class="form-control" style="width:95%;height:100%;margin:0 auto" multiple="">
-                  <?php 
+                          <button onclick="setGraficoGrupo(<?php echo $idGrupo ?>)" class="btn btn-default" style="width:100%;margin-top:10px"><?php echo "$NOMEGrup";?></button>
+                          <div class="panel-body">
+                              <?php 
                           $SqlUsuarioGrupo = mysql_query("SELECT `idUsuario`,`nome` FROM `usuarios` WHERE `idgrupo` ='$idGrupo'");
                     while ($Usergrop = mysql_fetch_object($SqlUsuarioGrupo)){  
                         $idUser=$Usergrop->idUsuario;
                         $nomeUserG=$Usergrop->nome;
-                        echo" <option value='$idUser'>$nomeUserG</option>";
+                        echo" <button onclick='setGraficoUser($idUser)' class='btn btn-default' style='width:100%;margin:0 auto;margin-top:10px;'>$nomeUserG</button>";
                          }
                          ?>
-                      </select>
+                        </div>
                       <?php 
-                      $p++;
                         }
                       ?>    
                   </div>
-                  <script type="text/javascript">
-                      $(document).ready(function() {  
-                      
-  });
-                  </script>
                   </div>
                     
                 </div>
