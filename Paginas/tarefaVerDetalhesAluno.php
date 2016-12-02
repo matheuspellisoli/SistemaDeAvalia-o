@@ -11,6 +11,7 @@ if (!$_SESSION['nivel']==1) {
 }
         ?>
 <html>
+    
      <?php
           $idTurma =$_GET['idTurma'];
           $id = $_GET['id'];
