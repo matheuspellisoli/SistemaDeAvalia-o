@@ -12,7 +12,7 @@ $linhas = mysql_num_rows($consulta);
         $dados[$i][0]="$nome";
         $dados[$i][1]=$nota;
       }
-      
+   
 $grafico->SetTitle("Notas do(a) ".$nomeUser);
 $grafico->SetYTitle("Pontos");
 $grafico->SetXTitle("Atividades");
@@ -22,5 +22,5 @@ $grafico->SetDataValues($dados);
 $grafico->SetLineStyles('solid');
 $grafico->SetLineWidths(4);
 $grafico->SetPointSizes(8);
-
 $grafico->DrawGraph();  
+ 

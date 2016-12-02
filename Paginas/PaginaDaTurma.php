@@ -347,8 +347,8 @@ while ($User = mysql_fetch_object($sql_user)) {
                     <div id='calendar' style="margin-top: 2%"></div>
                     <!---------------------------------------->
                     <div id='grafico' style="margin-top: 2%">
-                  <div id="continer" class="col-lg-8">
-                      <img id="imgGrafico" style="width:100%;min-height:500px;height:70%" src="http://localhost/SistemaDeAvalia-o/funcao/GraficoUsuario.php?id=1">
+                  <div id="" class="col-lg-8" align="center">
+                      <img id="imgGrafico" style="width:100%;min-height:500px;height:70%;font-size:50px;" src="http://localhost/SistemaDeAvalia-o/funcao/GraficoUsuario.php?id=1" alt="Não existem notas" >
                   </div>
                       <div class="col-lg-4" style="margin:auto 0;height:100%;overflow:auto;">
                       <?php 

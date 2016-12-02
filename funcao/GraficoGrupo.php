@@ -19,7 +19,7 @@ $linhas = mysql_num_rows($consulta);
       $dados[$i][$x+1]="$nota";
       $leg[$x]="$nomeUser";
         }
-      }
+      }   
 $grafico->SetTitle("Notas do grupo ".$nomeGrupoGraf);
 $grafico->SetYTitle("Pontos");
 $grafico->SetXTitle("Atividades");
