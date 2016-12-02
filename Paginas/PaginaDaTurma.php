@@ -1,14 +1,16 @@
 <?php 
 include '../funcao/conecta.php';
 session_start();
-if ($_SESSION['nivel']===2) {
+
         if (!isset($_SESSION['Login'])) {
                
             die(header('Location:../Paginas/index.php?erro=0110'));
                 
         }
-}
-
+          if ($_SESSION['nivel']!='2'){
+               
+            die(header('Location:../Paginas/index.php?erro=1100'));         
+        } 
 date_default_timezone_set('America/Sao_Paulo');
 ?>
 <html>
@@ -229,7 +231,7 @@ for ($i = 0; $i < $linhas; $i++) {
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-user disabled" style="margin-right:8px;"></span><?php echo "Tiago Marques alves"; ?></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon glyphicon-log-in disabled" style="margin-right:8px;"></span>Sair</a></li>
+        <li><a href="../funcao/sair.php"><span class="glyphicon glyphicon glyphicon-log-in disabled" style="margin-right:8px;"></span>Sair</a></li>
                 </ul>
             </div>
         </nav>

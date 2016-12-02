@@ -1,4 +1,17 @@
+<?php 
+include '../funcao/conecta.php';
+session_start();
 
+        if (!isset($_SESSION['Login'])) {
+               
+            die(header('Location:../Paginas/index.php?erro=0110'));
+                
+        }
+          if ($_SESSION['nivel']!='1'){
+               
+            die(header('Location:../Paginas/index.php?erro=1100'));         
+        }
+?>
     <html>
             <head>
             <meta charset="UTF-8">
@@ -19,7 +32,7 @@
       <script src='../fullcalendar-3.0.1/fullcalendar.min.js'></script>
         <script src='../ckeditor/ckeditor.js'></script>
 <?php
-        $idSUser = 12;
+        $idSUser = $_SESSION['id'];
         include '../funcao/conecta.php';
       ?>
         
@@ -89,7 +102,7 @@ for ($i = 0; $i < $linhas; $i++) {
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user disabled" style="margin-right:8px;"></span><?php echo "Aluno";?></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon glyphicon-log-in disabled" style="margin-right:8px;"></span>Sair</a></li>
+        <li><a href="../funcao/sair.php"><span class="glyphicon glyphicon glyphicon-log-in disabled" style="margin-right:8px;"></span>Sair</a></li>
         </ul>
       </div>
     </nav>        

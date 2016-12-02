@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php 
+include '../funcao/conecta.php';
+session_start();
+
+        if (!isset($_SESSION['Login'])) {
+               
+            die(header('Location:../Paginas/index.php?erro=0110'));
+                
+        }
+          if ($_SESSION['nivel']!='2'){
+               
+            die(header('Location:../Paginas/index.php?erro=1100'));         
+        }
+?>
 <html>
     <head>
    <meta charset="UTF-8">
