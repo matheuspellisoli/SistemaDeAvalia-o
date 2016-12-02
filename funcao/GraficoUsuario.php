@@ -12,7 +12,7 @@ $linhas = mysql_num_rows($consulta);
         $dados[$i][0]="$nome";
         $dados[$i][1]=$nota;
       }
-   
+//$grafico->SetPlotType('bars');  
 $grafico->SetTitle("Notas do(a) ".$nomeUser);
 $grafico->SetYTitle("Pontos");
 $grafico->SetXTitle("Atividades");
