@@ -5,7 +5,7 @@ if ((isset($_POST['Entrar']))){
             $senha = $_POST['senha'];
             echo "$email";
             echo "$senha";
-            $sql = "SELECT`idUsuario`,`email`,`senha`,`nivelAcesso_idnivelAcesso` FROM `usuarios`  WHERE `email`='$email'";
+            $sql = "SELECT`idUsuario`,`nome`,`email`,`senha`,`nivelAcesso_idnivelAcesso` FROM `usuarios`  WHERE `email`='$email'";
            $res = mysql_query($sql);
             if ($row = mysql_fetch_array($res)){
                 if ($senha == $row['senha']) {                                      
@@ -13,7 +13,7 @@ if ((isset($_POST['Entrar']))){
                   $_SESSION['Login']=$email;
                   $_SESSION['nivel']=$row['nivelAcesso_idnivelAcesso'];
                   $_SESSION['id']=$row['idUsuario'];
-                  
+                  $_SESSION['nome']=$row['nome'];
                   
                   if($row['nivelAcesso_idnivelAcesso']==2){
                   
