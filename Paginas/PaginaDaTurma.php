@@ -363,6 +363,7 @@ while ($User = mysql_fetch_object($sql_user)) {
                         $NOMEGrup=$grupoUser->nome;
                         $idGrupo=$grupoUser->idGrupo;
                       ?>
+                          
                           <button onclick="setGraficoGrupo(<?php echo $idGrupo ?>)" class="btn btn-default" style="width:100%;margin-top:10px"><?php echo "$NOMEGrup";?></button>
                           <div class="panel-body">
                               <?php 
