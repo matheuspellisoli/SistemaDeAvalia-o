@@ -475,9 +475,10 @@ while ($User = mysql_fetch_object($sql_user)) {
                                         <div class="col-lg-12">
                                             <label for="descricao">E-mail</label>
                                             <input type="email"  name="email" class="form-control" id="email" style="margin-top: 8px ">
-                                        </div> 
+                                        </div>
+                                        
 
-                                        <input type="hidden" name="idUserOrientador" value="1" > 
+                                        <input type="hidden" name="idUserOrientador" value="2" > 
                                         <input type="hidden" name="idTurma" value="<?php echo $idTurma; ?>" > 
 
                                         <input type="submit" class="btn btn-default  col-lg-12" style="margin-top: 2%" value="Cadastrar aluno" style="margin-top: 8px">
