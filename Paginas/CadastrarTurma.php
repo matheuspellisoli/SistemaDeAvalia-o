@@ -13,7 +13,7 @@ session_start();
         }
         
 
-        $SesaoIdUser = $_SESSION['id']; 
+        $SesaoIdUser = $_SESSION['id'];
 ?>
 <html>
     <head>
@@ -43,7 +43,7 @@ session_start();
             <div class=" col-lg-4">
             <div class="form-group"> 
                 <h2>Cadastrar turma</h2>
-                <form method="Post" enctype="multipart/form-data" action="../funcao/funcCadastrarTurma.php">
+                <form method="Post" enctype="multipart/form-data" action="../funcao/FuncCadastrarTurma.php">
             <div class="col-lg-12" style="margin-top: 8px ">
             <label for="titulo">Nome da turma</label>
         <input type="text"  name="titulo" class="form-control" id="email" >
