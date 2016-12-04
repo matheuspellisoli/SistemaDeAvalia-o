@@ -35,14 +35,13 @@ session_start();
   <script src='../fullcalendar-3.0.1/fullcalendar.min.js'></script>
  
   <div class="jumbotron text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p>
+<h2>Cadastrar turma</h2>
 </div>
-        <div class=" col-lg-12">
+  <div class=" col-lg-12" style="margin-bottom:5%">
             <div class=" col-lg-4"></div>
             <div class=" col-lg-4">
             <div class="form-group"> 
-                <h2>Cadastrar turma</h2>
+                
                 <form method="Post" enctype="multipart/form-data" action="../funcao/FuncCadastrarTurma.php">
             <div class="col-lg-12" style="margin-top: 8px ">
             <label for="titulo">Nome da turma</label>

@@ -219,22 +219,18 @@ for ($i = 0; $i < $linhas; $i++) {
                 margin-bottom: 5%;
             }
         </style>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">WebSiteName</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class=""><a href="../Paginas/PaginaDoProfessor.php">Home</a></li>
-                    <li><a href="../Paginas/forum.php">forum</a></li>
-                    <li><a href="#">Page 2</a></li> 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                   <li><a href="#"><span class="glyphicon glyphicon-user disabled" style="margin-right:8px;"></span><?php echo $_SESSION['nome'];?></a></li>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class=""><a href="../Paginas/PaginaDoProfessor.php" >Home</a></li>
+      <li><a href="../Paginas/forum.php">forum</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user disabled" style="margin-right:8px;"></span><?php echo $_SESSION['nome'];?></a></li>
         <li><a href="../funcao/sair.php"><span class="glyphicon glyphicon glyphicon-log-in disabled" style="margin-right:8px;"></span>Sair</a></li>
-                </ul>
-            </div>
-        </nav>
+    </ul>
+  </div>
+</nav>
         <div class="col-lg-2"></div>
         <div class="panel panel-default col-lg-8">
             <div class="panel-body" style="text-align:center;"><h3><?php echo "$nomeTurma"; ?></h3></div>

@@ -51,9 +51,6 @@ if (!$_SESSION['nivel']==1) {
  
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="">Logo</a>
-    </div>
     <ul class="nav navbar-nav">
       <li class=""><a href="../Paginas/PaginaDoAluno.php" >Home</a></li>
       <li><a href="../Paginas/forumAluno.php">forum</a></li>

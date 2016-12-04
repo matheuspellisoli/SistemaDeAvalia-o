@@ -44,13 +44,9 @@ session_start();
           
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="">Logo</a>
-    </div>
     <ul class="nav navbar-nav">
      <li class=""><a href="<?php echo "$home";  ?>" >Home</a></li>
       <li><a href="../Paginas/forum.php">forum</a></li>
-      <li><a href="#">Page 2</a></li> 
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user disabled" style="margin-right:8px;"></span><?php echo "Tiago Marques alves";?></a></li>
@@ -60,8 +56,8 @@ session_start();
 </nav>
     <div class="col-lg-12" style="margin-top: 5%">   
         <div class="col-lg-1" ></div>
-        <div class="panel panel-body col-lg-10">      
-      <p><?php echo "$pergunta"?></p>
+        <div class="panel panel-body col-lg-10" align="center">      
+            <h2><?php echo "$pergunta"?></h2>
     </div>        
         <div class="col-lg-1" ></div>
         <div class="col-lg-2" ></div>
