@@ -14,6 +14,8 @@ session_start();
 ?>
 <html>
     <head>
+            <title>Sistema de avaliação</title>
+
        <meta http-equiv="content-Type" content="text/html; charset=iso-8859-1" />
         <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

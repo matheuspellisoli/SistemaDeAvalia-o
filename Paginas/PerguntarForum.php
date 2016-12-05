@@ -21,6 +21,7 @@ session_start();
 ?>
 <html>
 <head>
+            <title>Sistema de avaliação</title>
         <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -42,9 +43,6 @@ session_start();
           
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="">Logo</a>
-    </div>
     <ul class="nav navbar-nav">
       <li class=""><a href="<?php echo "$home";  ?>" >Home</a></li>
       <li><a href="../Paginas/forum.php">forum</a></li>

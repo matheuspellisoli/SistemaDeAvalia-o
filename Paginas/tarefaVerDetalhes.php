@@ -31,7 +31,7 @@ if ($_SESSION['nivel']===2) {
                     ?>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+            <title>Sistema de avaliação</title>
     </head>
     <body>
         <meta http-equiv="content-Type" content="text/html; charset=iso-8859-1" />
